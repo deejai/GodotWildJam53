@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://7ru077xx0uyw"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.286275, 1, 1, 1)
+polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 1080, 0, 1080)
+metadata/_edit_lock_ = true
