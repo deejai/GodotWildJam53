@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6bsl42em4whr"]
+[gd_scene load_steps=12 format=3 uid="uid://c6bsl42em4whr"]
 
 [ext_resource type="Texture2D" uid="uid://ch1iut3jqabns" path="res://Assets/Box-Sheet.png" id="1_12p8i"]
+[ext_resource type="Script" path="res://Main/Factory/Box.gd" id="1_78ldm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld1r7"]
 size = Vector2(80, 80)
@@ -42,6 +43,7 @@ animations = [{
 }]
 
 [node name="Box" type="Node2D"]
+script = ExtResource("1_78ldm")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
@@ -49,5 +51,5 @@ animations = [{
 top_level = true
 shape = SubResource("RectangleShape2D_ld1r7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+[node name="Sprite" type="AnimatedSprite2D" parent="RigidBody2D"]
 frames = SubResource("SpriteFrames_2gmxa")

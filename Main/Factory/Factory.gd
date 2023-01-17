@@ -17,6 +17,7 @@ func _process(delta):
 	if timer >= next_spawn:
 		next_spawn += box_interval
 		var new_box = box.instantiate()
+		new_box.init(1 + randi() % 6)
 		new_box.position.x = $BoxChute.position.x + $BoxChute.size.x/2 - 75 + randf() * 150
 		add_child(new_box)
 		print("box spawned at ", timer, " seconds")
