@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6bsl42em4whr"]
+
+[ext_resource type="Texture2D" uid="uid://ch1iut3jqabns" path="res://Assets/Box-Sheet.png" id="1_12p8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld1r7"]
+size = Vector2(80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11iw2"]
+atlas = ExtResource("1_12p8i")
+region = Rect2(0, 0, 85, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fmk0"]
+atlas = ExtResource("1_12p8i")
+region = Rect2(85, 0, 85, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s680h"]
+atlas = ExtResource("1_12p8i")
+region = Rect2(170, 0, 85, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g42ba"]
+atlas = ExtResource("1_12p8i")
+region = Rect2(255, 0, 85, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24ac0"]
+atlas = ExtResource("1_12p8i")
+region = Rect2(340, 0, 85, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81kxh"]
+atlas = ExtResource("1_12p8i")
+region = Rect2(425, 0, 85, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xerkl"]
+atlas = ExtResource("1_12p8i")
+region = Rect2(510, 0, 85, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2gmxa"]
+animations = [{
+"frames": [SubResource("AtlasTexture_11iw2"), SubResource("AtlasTexture_8fmk0"), SubResource("AtlasTexture_s680h"), SubResource("AtlasTexture_g42ba"), SubResource("AtlasTexture_24ac0"), SubResource("AtlasTexture_81kxh"), SubResource("AtlasTexture_xerkl")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Box" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+top_level = true
+shape = SubResource("RectangleShape2D_ld1r7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+frames = SubResource("SpriteFrames_2gmxa")

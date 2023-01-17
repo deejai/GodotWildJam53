@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfxi5y7v8qoae"]
+
+[ext_resource type="Script" path="res://Main/Factory/Factory.gd" id="1_gfdr1"]
+[ext_resource type="Texture2D" uid="uid://dctqf26ol1jsw" path="res://Assets/Box Chute.png" id="2_xe1j2"]
+[ext_resource type="Texture2D" uid="uid://bvh01t87y7sdn" path="res://Assets/ArmMaker.png" id="3_g8g88"]
+[ext_resource type="Texture2D" uid="uid://bs08phxdjf6ql" path="res://Assets/Combiner.png" id="4_ua00q"]
+[ext_resource type="Texture2D" uid="uid://c5ihnke3tudau" path="res://Assets/HeadMaker.png" id="5_8g3tn"]
+[ext_resource type="Texture2D" uid="uid://n3lmjmjt1lwm" path="res://Assets/LegMaker.png" id="6_lrvnr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdc28"]
+size = Vector2(1603.5, 31)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uaex4"]
+a = Vector2(-116, 151)
+b = Vector2(-126, -541)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_s1en8"]
+a = Vector2(64, 79)
+b = Vector2(102, 115)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_gfdr1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.439216, 0.568627, 0.615686, 1)
+polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 1080, 0, 1080)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(857.25, 893.5)
+shape = SubResource("RectangleShape2D_wdc28")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(138, 692)
+shape = SubResource("SegmentShape2D_uaex4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-46, 764)
+shape = SubResource("SegmentShape2D_s1en8")
+
+[node name="BoxChute" type="TextureRect" parent="."]
+z_index = 1
+offset_left = 119.0
+offset_right = 403.0
+offset_bottom = 182.0
+texture = ExtResource("2_xe1j2")
+
+[node name="ArmMaker" type="TextureRect" parent="."]
+offset_left = 1000.0
+offset_top = 368.0
+offset_right = 1162.0
+offset_bottom = 524.0
+size_flags_horizontal = 4
+texture = ExtResource("3_g8g88")
+
+[node name="Combiner" type="TextureRect" parent="."]
+offset_left = 602.0
+offset_top = 330.0
+offset_right = 938.0
+offset_bottom = 532.0
+texture = ExtResource("4_ua00q")
+
+[node name="HeadMaker" type="TextureRect" parent="."]
+offset_left = 1224.0
+offset_top = 368.0
+offset_right = 1386.0
+offset_bottom = 524.0
+size_flags_horizontal = 4
+texture = ExtResource("5_8g3tn")
+
+[node name="LegMaker" type="TextureRect" parent="."]
+offset_left = 1432.0
+offset_top = 368.0
+offset_right = 1594.0
+offset_bottom = 524.0
+size_flags_horizontal = 4
+texture = ExtResource("6_lrvnr")
