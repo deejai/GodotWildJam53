@@ -1,0 +1,330 @@
+[gd_scene load_steps=11 format=3 uid="uid://cp6npmfcs4er"]
+
+[ext_resource type="Script" path="res://ConveyorBelt/ConveyorBelt.gd" id="1_ib2k1"]
+[ext_resource type="Texture2D" uid="uid://dr5cob3rc7ui0" path="res://ConveyorBelt/images/base.png" id="2_dhsgl"]
+[ext_resource type="Shader" path="res://ConveyorBelt/ConveyorBelt.gdshader" id="3_5rlkc"]
+[ext_resource type="Texture2D" uid="uid://bygua7bkah2cu" path="res://ConveyorBelt/images/screw.png" id="3_w2r02"]
+[ext_resource type="Texture2D" uid="uid://dhuxogkf820ue" path="res://ConveyorBelt/images/strap.png" id="5_8f35e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85ntw"]
+shader = ExtResource("3_5rlkc")
+shader_parameter/offset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqfym"]
+size = Vector2(1706, 86)
+
+[sub_resource type="Animation" id="Animation_pgw7x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Belt:material:shader_parameter/offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Screws/Screw1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Screws/Screw2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Screws/Screw3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Screws/Screw4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visuals/Screws/Screw5:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Visuals/Screws/Screw6:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Visuals/Screws/Screw7:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Visuals/Screws/Screw8:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Visuals/Screws/Screw9:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mirnk"]
+resource_name = "active"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Belt:material:shader_parameter/offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 7.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Screws/Screw1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Screws/Screw2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.523599, 6.80678]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Screws/Screw3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.418879, 5.86431]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Screws/Screw4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0872665, 6.37045]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visuals/Screws/Screw5:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.628319, 6.9115]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Visuals/Screws/Screw6:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.18682, 7.47001]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Visuals/Screws/Screw7:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.785398, 5.49779]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Visuals/Screws/Screw8:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Visuals/Screws/Screw9:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.48353, 7.76672]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jiff6"]
+_data = {
+"RESET": SubResource("Animation_pgw7x"),
+"active": SubResource("Animation_mirnk")
+}
+
+[node name="ConveyorBelt" type="StaticBody2D"]
+script = ExtResource("1_ib2k1")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Base" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("2_dhsgl")
+
+[node name="Screws" type="Node2D" parent="Visuals"]
+
+[node name="Screw1" type="Sprite2D" parent="Visuals/Screws"]
+position = Vector2(-810, 0)
+texture = ExtResource("3_w2r02")
+
+[node name="Screw2" type="Sprite2D" parent="Visuals/Screws"]
+position = Vector2(-606, 0)
+texture = ExtResource("3_w2r02")
+
+[node name="Screw3" type="Sprite2D" parent="Visuals/Screws"]
+position = Vector2(-404, 0)
+texture = ExtResource("3_w2r02")
+
+[node name="Screw4" type="Sprite2D" parent="Visuals/Screws"]
+position = Vector2(-202, 0)
+texture = ExtResource("3_w2r02")
+
+[node name="Screw5" type="Sprite2D" parent="Visuals/Screws"]
+texture = ExtResource("3_w2r02")
+
+[node name="Screw6" type="Sprite2D" parent="Visuals/Screws"]
+position = Vector2(202, 0)
+texture = ExtResource("3_w2r02")
+
+[node name="Screw7" type="Sprite2D" parent="Visuals/Screws"]
+position = Vector2(404, 0)
+texture = ExtResource("3_w2r02")
+
+[node name="Screw8" type="Sprite2D" parent="Visuals/Screws"]
+position = Vector2(606, 0)
+texture = ExtResource("3_w2r02")
+
+[node name="Screw9" type="Sprite2D" parent="Visuals/Screws"]
+position = Vector2(810, 0)
+texture = ExtResource("3_w2r02")
+
+[node name="Belt" type="Line2D" parent="Visuals"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_85ntw")
+points = PackedVector2Array(-767, -37, 809, -35, 825, -32, 835, -24, 841, -13, 844, -1, 841, 13, 835, 23, 825, 30, 809, 33, -798, 38, -820, 35, -835, 28, -844, 16, -848, -1, -845, -17, -837, -28, -822, -35, -797, -37, -767, -37)
+width = 18.042
+texture = ExtResource("5_8f35e")
+texture_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tqfym")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "active"
+libraries = {
+"": SubResource("AnimationLibrary_jiff6")
+}
