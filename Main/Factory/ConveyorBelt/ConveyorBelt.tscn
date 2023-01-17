@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cp6npmfcs4er"]
+[gd_scene load_steps=11 format=3]
 
-[ext_resource type="Script" path="res://ConveyorBelt/ConveyorBelt.gd" id="1_ib2k1"]
-[ext_resource type="Texture2D" uid="uid://dr5cob3rc7ui0" path="res://ConveyorBelt/images/base.png" id="2_dhsgl"]
-[ext_resource type="Shader" path="res://ConveyorBelt/ConveyorBelt.gdshader" id="3_5rlkc"]
-[ext_resource type="Texture2D" uid="uid://bygua7bkah2cu" path="res://ConveyorBelt/images/screw.png" id="3_w2r02"]
-[ext_resource type="Texture2D" uid="uid://dhuxogkf820ue" path="res://ConveyorBelt/images/strap.png" id="5_8f35e"]
+[ext_resource type="Script" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.gd" id="1_ib2k1"]
+[ext_resource type="Texture2D" uid="uid://dr5cob3rc7ui0" path="res://Main/Factory/ConveyorBelt/images/base.png" id="2_dhsgl"]
+[ext_resource type="Shader" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.gdshader" id="3_5rlkc"]
+[ext_resource type="Texture2D" uid="uid://bygua7bkah2cu" path="res://Main/Factory/ConveyorBelt/images/screw.png" id="3_w2r02"]
+[ext_resource type="Texture2D" uid="uid://dhuxogkf820ue" path="res://Main/Factory/ConveyorBelt/images/strap.png" id="5_8f35e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85ntw"]
 shader = ExtResource("3_5rlkc")

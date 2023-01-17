@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bs08phxdjf6ql" path="res://Assets/Combiner.png" id="4_ua00q"]
 [ext_resource type="Texture2D" uid="uid://c5ihnke3tudau" path="res://Assets/HeadMaker.png" id="5_8g3tn"]
 [ext_resource type="Texture2D" uid="uid://n3lmjmjt1lwm" path="res://Assets/LegMaker.png" id="6_lrvnr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdc28"]
-size = Vector2(1603.5, 31)
+[ext_resource type="PackedScene" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.tscn" id="7_vb6dy"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uaex4"]
 a = Vector2(-116, 151)
@@ -27,10 +25,6 @@ polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 1080, 0, 1080)
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(857.25, 893.5)
-shape = SubResource("RectangleShape2D_wdc28")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(138, 692)
@@ -77,3 +71,6 @@ offset_right = 1594.0
 offset_bottom = 524.0
 size_flags_horizontal = 4
 texture = ExtResource("6_lrvnr")
+
+[node name="ConveyorBelt" parent="." instance=ExtResource("7_vb6dy")]
+position = Vector2(890, 926)

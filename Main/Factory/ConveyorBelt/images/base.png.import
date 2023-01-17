@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhuxogkf820ue"
-path="res://.godot/imported/strap.png-be9b695b0f2cc4241a2ffe5059e81acc.ctex"
+uid="uid://dr5cob3rc7ui0"
+path="res://.godot/imported/base.png-b18f3ae998a8054b85ca1c91852f9bb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ConveyorBelt/images/strap.png"
-dest_files=["res://.godot/imported/strap.png-be9b695b0f2cc4241a2ffe5059e81acc.ctex"]
+source_file="res://Main/Factory/ConveyorBelt/images/base.png"
+dest_files=["res://.godot/imported/base.png-b18f3ae998a8054b85ca1c91852f9bb1.ctex"]
 
 [params]
 
