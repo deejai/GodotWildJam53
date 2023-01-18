@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfxi5y7v8qoae"]
+[gd_scene load_steps=13 format=3 uid="uid://cfxi5y7v8qoae"]
 
 [ext_resource type="Script" path="res://Main/Factory/Factory.gd" id="1_gfdr1"]
 [ext_resource type="Texture2D" uid="uid://dctqf26ol1jsw" path="res://Assets/Box Chute.png" id="2_xe1j2"]
@@ -8,13 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://n3lmjmjt1lwm" path="res://Assets/LegMaker.png" id="6_lrvnr"]
 [ext_resource type="PackedScene" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.tscn" id="7_vb6dy"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_uaex4"]
-a = Vector2(-116, 151)
-b = Vector2(-126, -541)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vrysb"]
+a = Vector2(42, 110)
+b = Vector2(125, 122)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_s1en8"]
-a = Vector2(64, 79)
-b = Vector2(102, 115)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aaeor"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dxfdf"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cx18a"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ujhqv"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gfdr1")
@@ -26,51 +33,78 @@ metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(138, 692)
-shape = SubResource("SegmentShape2D_uaex4")
-
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-46, 764)
-shape = SubResource("SegmentShape2D_s1en8")
+shape = SubResource("SegmentShape2D_vrysb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(890, 0)
+shape = SubResource("WorldBoundaryShape2D_aaeor")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 397)
+shape = SubResource("WorldBoundaryShape2D_dxfdf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1920, 446)
+shape = SubResource("WorldBoundaryShape2D_cx18a")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(939, 1080)
+shape = SubResource("WorldBoundaryShape2D_ujhqv")
 
 [node name="BoxChute" type="TextureRect" parent="."]
-z_index = 1
+z_index = 100
 offset_left = 119.0
 offset_right = 403.0
 offset_bottom = 182.0
 texture = ExtResource("2_xe1j2")
 
 [node name="ArmMaker" type="TextureRect" parent="."]
-offset_left = 1000.0
-offset_top = 368.0
-offset_right = 1162.0
-offset_bottom = 524.0
+offset_left = 999.0
+offset_top = 397.0
+offset_right = 1161.0
+offset_bottom = 553.0
 size_flags_horizontal = 4
 texture = ExtResource("3_g8g88")
 
 [node name="Combiner" type="TextureRect" parent="."]
-offset_left = 602.0
-offset_top = 330.0
-offset_right = 938.0
-offset_bottom = 532.0
+offset_left = 603.0
+offset_top = 358.0
+offset_right = 939.0
+offset_bottom = 560.0
 texture = ExtResource("4_ua00q")
 
 [node name="HeadMaker" type="TextureRect" parent="."]
-offset_left = 1224.0
-offset_top = 368.0
-offset_right = 1386.0
-offset_bottom = 524.0
+offset_left = 1220.0
+offset_top = 397.0
+offset_right = 1382.0
+offset_bottom = 553.0
 size_flags_horizontal = 4
 texture = ExtResource("5_8g3tn")
 
 [node name="LegMaker" type="TextureRect" parent="."]
-offset_left = 1432.0
-offset_top = 368.0
-offset_right = 1594.0
-offset_bottom = 524.0
+offset_left = 1445.0
+offset_top = 397.0
+offset_right = 1607.0
+offset_bottom = 553.0
 size_flags_horizontal = 4
 texture = ExtResource("6_lrvnr")
 
 [node name="ConveyorBelt" parent="." instance=ExtResource("7_vb6dy")]
 position = Vector2(890, 926)
+scale = Vector2(0.95, 0.95)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CombinerRect1" type="TextureRect" parent="."]
+offset_left = 657.0
+offset_top = 434.0
+offset_right = 737.0
+offset_bottom = 514.0
+
+[node name="CombinerRect2" type="TextureRect" parent="."]
+offset_left = 809.0
+offset_top = 434.0
+offset_right = 889.0
+offset_bottom = 514.0

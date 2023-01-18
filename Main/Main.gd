@@ -1,6 +1,6 @@
 extends Node
 
-enum BoxType {BLANK, HEART, ORANGE, STAR, LEAF, WATER, FLOWER}
+enum BoxType {BLANK, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
