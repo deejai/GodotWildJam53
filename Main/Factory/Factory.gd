@@ -10,9 +10,13 @@ var grabbed_box: ChuteBox = null
 var combiner_box1: ChuteBox = null
 var combiner_box2: ChuteBox = null
 
+var health: float = 100
+var health_decay: float = 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AudioStreamPlayer2D.play()
+	$BGMusic.play()
+	$ConveyorBelt/AudioLoop.play()
 	pass # Replace with function body.
 
 
@@ -44,6 +48,9 @@ func _process(delta):
 					combiner_produce(Main.BoxType.VIOLET)
 				elif combiner_box2.type == Main.BoxType.YELLOW:
 					combiner_produce(Main.BoxType.GREEN)
+					
+	health = max(0, health - health_decay * delta)
+	$HealthUI/TextureProgressBar.value = health
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -114,4 +121,6 @@ func combiner_produce(type: Main.BoxType):
 func _on_area_2d_body_entered(body):
 	var obj = body.get_owner()
 	if obj is ChuteBox:
+		if obj == grabbed_box:
+			grabbed_box = null
 		obj.queue_free()
