@@ -104,16 +104,16 @@ scale = Vector2(0.95, 0.95)
 stream = ExtResource("8_wdvvq")
 
 [node name="CombinerRect1" type="TextureRect" parent="."]
-offset_left = 657.0
+offset_left = 656.0
 offset_top = 434.0
-offset_right = 737.0
+offset_right = 738.0
 offset_bottom = 514.0
 
 [node name="CombinerRect2" type="TextureRect" parent="."]
-offset_left = 809.0
+offset_left = 808.0
 offset_top = 434.0
 offset_right = 889.0
-offset_bottom = 514.0
+offset_bottom = 515.0
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1812, 903)
