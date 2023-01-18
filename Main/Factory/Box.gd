@@ -26,7 +26,13 @@ func disable_gravity():
 func snap_to(pos: Vector2):
 	$RigidBody2D.snap_pos = pos
 	$RigidBody2D.custom_integrator = true
+	$RigidBody2D.collision_layer = 2
+	$RigidBody2D.collision_mask = 2
+	z_index = 20
 
 func unsnap():
 	$RigidBody2D.snap_pos = Vector2.INF
 	$RigidBody2D.custom_integrator = false
+	$RigidBody2D.collision_layer = 1
+	$RigidBody2D.collision_mask = 1
+	z_index = 25

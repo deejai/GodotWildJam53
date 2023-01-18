@@ -12,6 +12,7 @@ var combiner_box2: ChuteBox = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer2D.play()
 	pass # Replace with function body.
 
 
@@ -69,6 +70,12 @@ func _input(event):
 				elif grabbed_box and !combiner_box2 and $CombinerRect2.get_global_rect().has_point(get_global_mouse_position()):
 					grabbed_box.snap_to($CombinerRect2.position + $CombinerRect2.size/2)
 					combiner_box2 = grabbed_box
+				elif grabbed_box and $HeadMaker.get_global_rect().has_point(get_global_mouse_position()):
+					grabbed_box.queue_free()
+				elif grabbed_box and $ArmMaker.get_global_rect().has_point(get_global_mouse_position()):
+					grabbed_box.queue_free()
+				elif grabbed_box and $LegMaker.get_global_rect().has_point(get_global_mouse_position()):
+					grabbed_box.queue_free()
 				else:
 					grabbed_box.unsnap()
 					grabbed_box.enable_gravity()
@@ -103,3 +110,8 @@ func combiner_produce(type: Main.BoxType):
 	new_box.position.y = $Combiner.position.y - 20
 	new_box.get_node("RigidBody2D").linear_velocity = Vector2(-5 + randf() * 10, -300)
 	add_child(new_box)
+
+func _on_area_2d_body_entered(body):
+	var obj = body.get_owner()
+	if obj is ChuteBox:
+		obj.queue_free()
