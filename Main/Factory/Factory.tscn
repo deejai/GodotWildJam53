@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfxi5y7v8qoae"]
+[gd_scene load_steps=13 format=3 uid="uid://cfxi5y7v8qoae"]
 
 [ext_resource type="Script" path="res://Main/Factory/Factory.gd" id="1_gfdr1"]
 [ext_resource type="Texture2D" uid="uid://dctqf26ol1jsw" path="res://Assets/Box Chute.png" id="2_xe1j2"]
@@ -22,12 +22,6 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ujhqv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkq04"]
-size = Vector2(77, 77)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdofu"]
-size = Vector2(79, 82.25)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gfdr1")
@@ -103,14 +97,14 @@ scale = Vector2(0.95, 0.95)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[node name="CombinerArea1" type="Area2D" parent="."]
+[node name="CombinerRect1" type="TextureRect" parent="."]
+offset_left = 657.0
+offset_top = 434.0
+offset_right = 737.0
+offset_bottom = 514.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CombinerArea1"]
-position = Vector2(696.5, 474.5)
-shape = SubResource("RectangleShape2D_vkq04")
-
-[node name="CombinerArea2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CombinerArea2"]
-position = Vector2(847.5, 473.875)
-shape = SubResource("RectangleShape2D_hdofu")
+[node name="CombinerRect2" type="TextureRect" parent="."]
+offset_left = 809.0
+offset_top = 434.0
+offset_right = 889.0
+offset_bottom = 514.0

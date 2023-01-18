@@ -22,3 +22,11 @@ func enable_gravity():
 
 func disable_gravity():
 	$RigidBody2D.gravity_scale = 0
+
+func snap_to(pos: Vector2):
+	$RigidBody2D.snap_pos = pos
+	$RigidBody2D.custom_integrator = true
+
+func unsnap():
+	$RigidBody2D.snap_pos = Vector2.INF
+	$RigidBody2D.custom_integrator = false

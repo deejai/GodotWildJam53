@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6bsl42em4whr"]
+[gd_scene load_steps=13 format=3 uid="uid://c6bsl42em4whr"]
 
 [ext_resource type="Texture2D" uid="uid://ch1iut3jqabns" path="res://Assets/Box-Sheet.png" id="1_12p8i"]
 [ext_resource type="Script" path="res://Main/Factory/Box.gd" id="1_78ldm"]
+[ext_resource type="Script" path="res://Main/Factory/BoxRigidBody.gd" id="2_47wrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgcoa"]
 size = Vector2(80, 80)
@@ -68,6 +69,7 @@ script = ExtResource("1_78ldm")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 input_pickable = true
+script = ExtResource("2_47wrr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 top_level = true
