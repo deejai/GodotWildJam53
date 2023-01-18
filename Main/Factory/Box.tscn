@@ -65,6 +65,7 @@ animations = [{
 }]
 
 [node name="Box" type="Node2D"]
+z_index = 25
 script = ExtResource("1_78ldm")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]

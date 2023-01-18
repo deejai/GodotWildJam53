@@ -8,13 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	freeze = false if snap_pos == Vector2.INF else true
+	pass
 
 func _integrate_forces(state):
 	if(snap_pos != Vector2.INF):
 		state.set_transform(Transform2D(0, snap_pos))
 		state.angular_velocity = 0
-		pass
-
-	else:
-		pass
