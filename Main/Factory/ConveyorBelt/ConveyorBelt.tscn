@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://sdw3i0pl6i41"]
 
 [ext_resource type="Script" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.gd" id="1_ib2k1"]
 [ext_resource type="Texture2D" uid="uid://dr5cob3rc7ui0" path="res://Main/Factory/ConveyorBelt/images/base.png" id="2_dhsgl"]
@@ -10,8 +10,9 @@
 shader = ExtResource("3_5rlkc")
 shader_parameter/offset = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqfym"]
-size = Vector2(1706, 86)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vag4a"]
+radius = 45.0
+height = 1702.0
 
 [sub_resource type="Animation" id="Animation_pgw7x"]
 length = 0.001
@@ -321,7 +322,9 @@ texture = ExtResource("5_8f35e")
 texture_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_tqfym")
+position = Vector2(-3, 0)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_vag4a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "active"

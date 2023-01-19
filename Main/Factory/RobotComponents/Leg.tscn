@@ -60,6 +60,7 @@ animations = [{
 }]
 
 [node name="Head" type="Node2D"]
+scale = Vector2(0.9, 0.9)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_0nyd3")

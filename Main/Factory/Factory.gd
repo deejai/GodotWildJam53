@@ -71,11 +71,11 @@ func _input(event):
 						grabbed_box.disable_gravity()
 						break
 			elif grabbed_box and !event.pressed:
-				if grabbed_box and !combiner_box1 and $CombinerRect1.get_global_rect().has_point(get_global_mouse_position()):
-					grabbed_box.snap_to($CombinerRect1.position + $CombinerRect1.size/2)
+				if grabbed_box and !combiner_box1 and $Combiner/Rect1.get_global_rect().has_point(get_global_mouse_position()):
+					grabbed_box.snap_to($Combiner/Rect1.position + $Combiner/Rect1.size/2)
 					combiner_box1 = grabbed_box
-				elif grabbed_box and !combiner_box2 and $CombinerRect2.get_global_rect().has_point(get_global_mouse_position()):
-					grabbed_box.snap_to($CombinerRect2.position + $CombinerRect2.size/2)
+				elif grabbed_box and !combiner_box2 and $Combiner/Rect2.get_global_rect().has_point(get_global_mouse_position()):
+					grabbed_box.snap_to($Combiner/Rect2.position + $Combiner/Rect2.size/2)
 					combiner_box2 = grabbed_box
 				elif grabbed_box and $HeadMaker.get_global_rect().has_point(get_global_mouse_position()):
 					grabbed_box.queue_free()
