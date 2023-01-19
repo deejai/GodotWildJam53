@@ -1,0 +1,195 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi4lcsxou7tec"]
+
+[ext_resource type="Texture2D" uid="uid://478iu7om03mm" path="res://Assets/Background/Background.png" id="1_wj3g8"]
+[ext_resource type="Texture2D" uid="uid://cd4uayg45daif" path="res://Assets/Background/Block.png" id="2_4mrnv"]
+[ext_resource type="Texture2D" uid="uid://cc2eibvmk062o" path="res://Assets/Background/Piston.png" id="2_jgk1b"]
+[ext_resource type="Texture2D" uid="uid://btsou884tj4d1" path="res://Assets/Background/midground.png" id="4_wtv82"]
+
+[sub_resource type="Animation" id="Animation_ak6y3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pistons:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blocks:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(295, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ncx5p"]
+resource_name = "loop"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pistons:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0), Vector2(0, 0), Vector2(0, 198), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blocks:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3, 4, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 24, 25, 27, 28, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0),
+"update": 0,
+"values": [Vector2(-145, 0), Vector2(75, 0), Vector2(75, 0), Vector2(295, 0), Vector2(295, 0), Vector2(515, 0), Vector2(515, 0), Vector2(735, 0), Vector2(735, 0), Vector2(955, 0), Vector2(955, 0), Vector2(1175, 0), Vector2(1175, 0), Vector2(1395, 0), Vector2(1395, 0), Vector2(1615, 0), Vector2(1615, 0), Vector2(1835, 0), Vector2(1835, 0), Vector2(2055, 0), Vector2(2055, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyk3b"]
+_data = {
+"RESET": SubResource("Animation_ak6y3"),
+"loop": SubResource("Animation_ncx5p")
+}
+
+[node name="Background" type="Node2D"]
+
+[node name="Back" type="Sprite2D" parent="."]
+texture = ExtResource("1_wj3g8")
+centered = false
+
+[node name="Blocks" type="Node2D" parent="."]
+position = Vector2(295, 0)
+
+[node name="Block" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(0, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block2" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(-220, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block3" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(-440, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block4" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(-660, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block5" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(-880, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block6" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(-1100, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block7" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(-1320, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block8" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(-1540, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block9" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(-1760, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block10" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(-1980, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block11" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(220, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block12" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(440, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block13" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(660, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block14" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(880, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block15" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(1100, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block16" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(1320, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block17" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(1540, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block18" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(1760, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Block19" type="Sprite2D" parent="Blocks"]
+modulate = Color(0.835294, 0.835294, 0.835294, 1)
+position = Vector2(1980, 553)
+texture = ExtResource("2_4mrnv")
+
+[node name="Pistons" type="Node2D" parent="."]
+
+[node name="Piston" type="Sprite2D" parent="Pistons"]
+modulate = Color(0.960784, 0.960784, 0.960784, 1)
+position = Vector2(293, 96.5)
+texture = ExtResource("2_jgk1b")
+
+[node name="Piston2" type="Sprite2D" parent="Pistons"]
+modulate = Color(0.94902, 0.94902, 0.94902, 1)
+position = Vector2(1612, 97.5)
+texture = ExtResource("2_jgk1b")
+
+[node name="Mid" type="Sprite2D" parent="."]
+texture = ExtResource("4_wtv82")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "loop"
+playback_speed = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_dyk3b")
+}
