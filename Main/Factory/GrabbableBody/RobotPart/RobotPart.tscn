@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://du6j06rxxwds3"]
+
+[ext_resource type="PackedScene" uid="uid://b740add1l7odg" path="res://Main/Factory/GrabbableBody/GrabbableBody.tscn" id="1_wgq23"]
+[ext_resource type="Script" path="res://Main/Factory/GrabbableBody/RobotPart/RobotPart.gd" id="2_hodq2"]
+
+[node name="RobotPart" instance=ExtResource("1_wgq23")]
+script = ExtResource("2_hodq2")
+color = null
+slot = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]

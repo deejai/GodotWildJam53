@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://Main/Factory/Machines/Combiner/Combiner.gd" id="1_736ju"]
+[ext_resource type="Texture2D" uid="uid://bs08phxdjf6ql" path="res://Assets/Combiner.png" id="1_pjemm"]
+[ext_resource type="PackedScene" uid="uid://kma7hnn5u1a2" path="res://Main/Particles/Smoke.tscn" id="2_y77us"]
+[ext_resource type="PackedScene" uid="uid://vravlf5qpow2" path="res://Main/Factory/GrabbableBody/Box/Box.tscn" id="2_yaw25"]
+[ext_resource type="PackedScene" uid="uid://bbu8s1qi3rdjm" path="res://Main/Factory/MachineParts/MachineSlot.tscn" id="3_l31tu"]
+[ext_resource type="PackedScene" uid="uid://b2ik3muvw5dkc" path="res://Main/Factory/MachineParts/Shutter.tscn" id="4_57gww"]
+[ext_resource type="PackedScene" uid="uid://rri1mvk5t6le" path="res://Main/Utils/Node2DShaker.tscn" id="6_3utcg"]
+[ext_resource type="PackedScene" uid="uid://ce6wxa8eedfau" path="res://Main/Sound/CombinerSound.tscn" id="6_k2diw"]
+
+[node name="Combiner" type="Node2D"]
+script = ExtResource("1_736ju")
+product_scene = ExtResource("2_yaw25")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pjemm")
+
+[node name="Slots" type="Node2D" parent="."]
+
+[node name="Slot" parent="Slots" instance=ExtResource("3_l31tu")]
+position = Vector2(-74, 15)
+
+[node name="Slot2" parent="Slots" instance=ExtResource("3_l31tu")]
+position = Vector2(77, 15)
+
+[node name="Shutters" type="Node2D" parent="."]
+
+[node name="Shutter" parent="Shutters" instance=ExtResource("4_57gww")]
+visible = false
+position = Vector2(-74, 15)
+
+[node name="Shutter2" parent="Shutters" instance=ExtResource("4_57gww")]
+visible = false
+position = Vector2(78, 16)
+
+[node name="Smoke" parent="." instance=ExtResource("2_y77us")]
+z_index = -1
+position = Vector2(-2, -44)
+
+[node name="Node2DShaker" parent="." instance=ExtResource("6_3utcg")]
+
+[node name="SpawnPosition" type="Marker2D" parent="."]
+position = Vector2(0, -128)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -168.0
+offset_top = 100.0
+offset_right = 168.0
+offset_bottom = 127.0
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="ShutterTimer" type="Timer" parent="."]
+wait_time = 2.2
+one_shot = true
+
+[node name="ProcessingTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="CombinerSound" parent="." instance=ExtResource("6_k2diw")]
+
+[connection signal="filled" from="Slots/Slot" to="." method="_on_slot_filled"]
+[connection signal="filled" from="Slots/Slot2" to="." method="_on_slot_filled"]
+[connection signal="timeout" from="ShutterTimer" to="." method="_on_shutter_timer_timeout"]

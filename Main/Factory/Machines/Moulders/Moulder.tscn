@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://Main/Factory/Machines/Moulders/Moulder.gd" id="1_obed4"]
+[ext_resource type="PackedScene" uid="uid://bbu8s1qi3rdjm" path="res://Main/Factory/MachineParts/MachineSlot.tscn" id="2_wk4aa"]
+[ext_resource type="PackedScene" uid="uid://b2ik3muvw5dkc" path="res://Main/Factory/MachineParts/Shutter.tscn" id="3_j34bn"]
+[ext_resource type="PackedScene" uid="uid://kma7hnn5u1a2" path="res://Main/Particles/Smoke.tscn" id="4_rocrr"]
+[ext_resource type="PackedScene" uid="uid://v0rvxcxi4drb" path="res://Main/Sound/MoulderSound.tscn" id="5_atmff"]
+[ext_resource type="PackedScene" uid="uid://rri1mvk5t6le" path="res://Main/Utils/Node2DShaker.tscn" id="6_rypfm"]
+
+[node name="Moulder" type="Node2D"]
+script = ExtResource("1_obed4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Slot" parent="." instance=ExtResource("2_wk4aa")]
+position = Vector2(0, 10)
+
+[node name="Shutter" parent="." instance=ExtResource("3_j34bn")]
+visible = false
+position = Vector2(1, 11)
+
+[node name="Smoke" parent="." instance=ExtResource("4_rocrr")]
+z_index = -1
+position = Vector2(0, -45)
+
+[node name="Node2DShaker" parent="." instance=ExtResource("6_rypfm")]
+
+[node name="SpawnPosition" type="Marker2D" parent="."]
+position = Vector2(0, -97)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -81.0
+offset_top = 79.0
+offset_right = 81.0
+offset_bottom = 106.0
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="ShutterTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="ProcessingTimer" type="Timer" parent="."]
+wait_time = 2.75
+one_shot = true
+
+[node name="MoulderSound" parent="." instance=ExtResource("5_atmff")]
+
+[connection signal="filled" from="Slot" to="." method="_on_slot_filled"]
+[connection signal="timeout" from="ShutterTimer" to="." method="_on_shutter_timer_timeout"]

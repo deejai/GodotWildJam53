@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce6wxa8eedfau"]
+
+[ext_resource type="AudioStream" uid="uid://mj45hqjd1j2v" path="res://Assets/Sound/SFX/Combiner Complete SFX.wav" id="1_6bxno"]
+
+[node name="CombinerSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_6bxno")

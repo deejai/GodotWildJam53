@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dno508jh3sumi"]
+
+[ext_resource type="Texture2D" uid="uid://dnq0hbigv4m7s" path="res://Assets/Arm_sheet.png" id="1_bqela"]
+[ext_resource type="PackedScene" uid="uid://du6j06rxxwds3" path="res://Main/Factory/GrabbableBody/RobotPart/RobotPart.tscn" id="1_vvi3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvmug"]
+size = Vector2(24, 102)
+
+[node name="Arm" instance=ExtResource("1_vvi3m")]
+color = 0
+slot = 2
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("1_bqela")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_kvmug")

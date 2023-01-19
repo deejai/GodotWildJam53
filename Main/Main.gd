@@ -1,13 +1,6 @@
 extends Node
 
-enum BoxType {BLANK, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET}
-enum RobotPart {BODY, HEAD, ARM, LEG}
+enum ColorType {BLANK, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET}
+enum RobotPartSlot {BODY, HEAD, ARM, LEG}
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+const PrimaryColors = [ColorType.RED, ColorType.YELLOW, ColorType.BLUE]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ik3muvw5dkc"]
+
+[ext_resource type="Script" path="res://Main/Factory/MachineParts/Shutter.gd" id="1_ukhwo"]
+[ext_resource type="Texture2D" uid="uid://cdull8sy0l3do" path="res://Assets/Shutter.png" id="2_xot5m"]
+
+[node name="Shutter" type="Node2D"]
+script = ExtResource("1_ukhwo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xot5m")

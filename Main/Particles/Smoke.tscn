@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://kma7hnn5u1a2"]
+[gd_scene load_steps=3 format=3 uid="uid://kma7hnn5u1a2"]
+
+[ext_resource type="Script" path="res://Main/Particles/Smoke.gd" id="1_fwfe7"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u4w86"]
 particle_flag_disable_z = true
@@ -14,6 +16,7 @@ scale_max = 20.0
 color = Color(0.564706, 0.564706, 0.556863, 0.384314)
 
 [node name="Smoke" type="Node2D"]
+script = ExtResource("1_fwfe7")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 128

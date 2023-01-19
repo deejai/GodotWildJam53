@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://vravlf5qpow2"]
+
+[ext_resource type="PackedScene" uid="uid://b740add1l7odg" path="res://Main/Factory/GrabbableBody/GrabbableBody.tscn" id="1_g8p6k"]
+[ext_resource type="Script" path="res://Main/Factory/GrabbableBody/Box/Box.gd" id="1_l6h72"]
+[ext_resource type="Texture2D" uid="uid://ch1iut3jqabns" path="res://Assets/Box-Sheet.png" id="3_ix1f5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0g5x"]
+size = Vector2(82, 80)
+
+[node name="Box" instance=ExtResource("1_g8p6k")]
+script = ExtResource("1_l6h72")
+color = 0
+slot = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_ix1f5")
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_l0g5x")

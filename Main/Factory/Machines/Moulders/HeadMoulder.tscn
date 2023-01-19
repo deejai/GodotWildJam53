@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://d272gfno37j71"]
+
+[ext_resource type="PackedScene" uid="uid://d2lao71ydq8iq" path="res://Main/Factory/Machines/Moulders/Moulder.tscn" id="1_lvyos"]
+[ext_resource type="PackedScene" uid="uid://hq6hjmnmdlxw" path="res://Main/Factory/GrabbableBody/RobotPart/Head.tscn" id="2_0wle0"]
+[ext_resource type="Texture2D" uid="uid://c5ihnke3tudau" path="res://Assets/HeadMaker.png" id="2_vsce6"]
+
+[node name="HeadMoulder" instance=ExtResource("1_lvyos")]
+product_scene = ExtResource("2_0wle0")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_vsce6")

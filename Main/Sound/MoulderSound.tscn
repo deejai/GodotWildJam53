@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://v0rvxcxi4drb"]
+
+[ext_resource type="AudioStream" uid="uid://1kus1gti5ddf" path="res://Assets/Sound/SFX/Moulder Complete SFX.wav" id="1_geeex"]
+
+[node name="MoulderSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_geeex")

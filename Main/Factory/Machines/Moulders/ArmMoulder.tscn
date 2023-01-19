@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4eu1prgrhs7v"]
+
+[ext_resource type="PackedScene" uid="uid://d2lao71ydq8iq" path="res://Main/Factory/Machines/Moulders/Moulder.tscn" id="1_o6528"]
+[ext_resource type="PackedScene" uid="uid://dno508jh3sumi" path="res://Main/Factory/GrabbableBody/RobotPart/Arm.tscn" id="2_qjddx"]
+[ext_resource type="Texture2D" uid="uid://bvh01t87y7sdn" path="res://Assets/ArmMaker.png" id="2_xf2ss"]
+
+[node name="ArmMoulder" instance=ExtResource("1_o6528")]
+product_scene = ExtResource("2_qjddx")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_xf2ss")
+
+[node name="SpawnPosition" parent="." index="5"]
+position = Vector2(0, -128)

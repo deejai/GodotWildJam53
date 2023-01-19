@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbyposufs6c4t"]
+
+[ext_resource type="PackedScene" uid="uid://du6j06rxxwds3" path="res://Main/Factory/GrabbableBody/RobotPart/RobotPart.tscn" id="1_1a5ip"]
+[ext_resource type="Texture2D" uid="uid://w4b8x3td6y7e" path="res://Assets/Leg_sheet.png" id="2_h8ggx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6x8r"]
+size = Vector2(38, 104)
+
+[node name="Leg" instance=ExtResource("1_1a5ip")]
+color = 0
+slot = 3
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_h8ggx")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_n6x8r")

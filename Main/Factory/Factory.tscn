@@ -1,291 +1,62 @@
-[gd_scene load_steps=26 format=3 uid="uid://blq04p4xpodlh"]
+[gd_scene load_steps=22 format=3 uid="uid://blq04p4xpodlh"]
 
-[ext_resource type="Script" path="res://Main/Factory/Factory.gd" id="1_gfdr1"]
-[ext_resource type="Texture2D" uid="uid://dctqf26ol1jsw" path="res://Assets/Box Chute.png" id="2_xe1j2"]
-[ext_resource type="Texture2D" uid="uid://bvh01t87y7sdn" path="res://Assets/ArmMaker.png" id="3_g8g88"]
-[ext_resource type="Texture2D" uid="uid://cdull8sy0l3do" path="res://Assets/Shutter.png" id="4_fvsgo"]
-[ext_resource type="Texture2D" uid="uid://bs08phxdjf6ql" path="res://Assets/Combiner.png" id="4_ua00q"]
-[ext_resource type="Texture2D" uid="uid://c5ihnke3tudau" path="res://Assets/HeadMaker.png" id="5_8g3tn"]
-[ext_resource type="PackedScene" uid="uid://kma7hnn5u1a2" path="res://Main/Particles/Smoke.tscn" id="5_ckkbe"]
-[ext_resource type="Texture2D" uid="uid://n3lmjmjt1lwm" path="res://Assets/LegMaker.png" id="6_lrvnr"]
-[ext_resource type="AudioStream" uid="uid://mj45hqjd1j2v" path="res://Assets/Sound/SFX/Combiner Complete SFX.wav" id="6_ujyk3"]
+[ext_resource type="Script" path="res://Main/Factory/Factory.gd" id="1_s1484"]
+[ext_resource type="PackedScene" uid="uid://bi4lcsxou7tec" path="res://Main/Factory/Background/Background.tscn" id="2_jh4yf"]
+[ext_resource type="Texture2D" uid="uid://vpdpoqhswpfh" path="res://Assets/gradient.png" id="3_6mvb4"]
+[ext_resource type="Texture2D" uid="uid://c78d3a20x6nfo" path="res://Assets/Floor.png" id="4_u4lct"]
+[ext_resource type="PackedScene" uid="uid://cg4574dyj5xts" path="res://Main/Factory/UI/RobotRequest.tscn" id="5_nd3l0"]
 [ext_resource type="PackedScene" uid="uid://sdw3i0pl6i41" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.tscn" id="7_vb6dy"]
-[ext_resource type="AudioStream" uid="uid://1kus1gti5ddf" path="res://Assets/Sound/SFX/Moulder Complete SFX.wav" id="8_a24jg"]
-[ext_resource type="Texture2D" uid="uid://m53a3gof5jyv" path="res://Assets/trash.png" id="9_48jpm"]
 [ext_resource type="AudioStream" uid="uid://cp4dteyv88xr" path="res://Assets/Sound/SFX/Conveyer Belt Ambient Loop.wav" id="10_d3eta"]
-[ext_resource type="Texture2D" uid="uid://pk1wcvu8fv0t" path="res://Assets/RightPanel/RobotPanel.png" id="11_cbc8v"]
 [ext_resource type="Texture2D" uid="uid://b2oercvspehsl" path="res://Assets/RightPanel/PanelProgressBar_empty.png" id="11_w12p7"]
 [ext_resource type="Texture2D" uid="uid://btlju8sm7p2xh" path="res://Assets/RightPanel/PanelProgressBar_full.png" id="12_tg4hy"]
 [ext_resource type="AudioStream" uid="uid://b57gwolug0mt0" path="res://Assets/Sound/Music/REAL THEME.wav" id="13_umnly"]
+[ext_resource type="PackedScene" uid="uid://cxcbwe75rlvtm" path="res://Main/Factory/Machines/BoxCute/BoxChute.tscn" id="18_na4wv"]
+[ext_resource type="PackedScene" path="res://Main/Factory/Machines/Combiner/Combiner.tscn" id="19_uxsoc"]
+[ext_resource type="PackedScene" uid="uid://d272gfno37j71" path="res://Main/Factory/Machines/Moulders/HeadMoulder.tscn" id="20_oq44j"]
+[ext_resource type="PackedScene" uid="uid://d4eu1prgrhs7v" path="res://Main/Factory/Machines/Moulders/ArmMoulder.tscn" id="21_inwmn"]
+[ext_resource type="PackedScene" uid="uid://mbsoielctpme" path="res://Main/Factory/Machines/Moulders/LegMoulder.tscn" id="22_8yisn"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_k758o"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qrr1b"]
 a = Vector2(-49, -16)
 b = Vector2(42, 13)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_agygm"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bngdr"]
 normal = Vector2(0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88j3b"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8j0v1"]
 normal = Vector2(1, 0)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_5x0w6"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_txhnj"]
 a = Vector2(-938, -1)
-b = Vector2(794, -1)
+b = Vector2(744, -1)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4wro"]
-radius = 16.7489
-height = 490.183
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gma6a"]
-radius = 22.0266
-height = 303.033
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_tmmmh"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5dftj"]
 a = Vector2(0, -443)
 b = Vector2(-1, 427)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lblqg"]
-size = Vector2(52.6661, 185.292)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lagcv"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_gfdr1")
+script = ExtResource("1_s1484")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.439216, 0.568627, 0.615686, 1)
-polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 1080, 0, 1080)
-metadata/_edit_lock_ = true
+[node name="BackgorundLayer" type="CanvasLayer" parent="."]
+layer = -10
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Background" parent="BackgorundLayer" instance=ExtResource("2_jh4yf")]
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(42, 873)
-shape = SubResource("SegmentShape2D_k758o")
+[node name="Gradient" type="Sprite2D" parent="BackgorundLayer"]
+modulate = Color(1, 0.541176, 0.541176, 1)
+position = Vector2(1798, 947)
+texture = ExtResource("3_6mvb4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1866, 0)
-shape = SubResource("WorldBoundaryShape2D_agygm")
+[node name="Floor" type="Sprite2D" parent="BackgorundLayer"]
+position = Vector2(0, 918)
+texture = ExtResource("4_u4lct")
+centered = false
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 397)
-shape = SubResource("WorldBoundaryShape2D_88j3b")
+[node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(939, 1080)
-shape = SubResource("SegmentShape2D_5x0w6")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1911, 925)
-rotation = -0.261799
-shape = SubResource("CapsuleShape2D_s4wro")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1743, 1080)
-rotation = -0.261799
-shape = SubResource("CapsuleShape2D_gma6a")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1922, 445)
-shape = SubResource("SegmentShape2D_tmmmh")
-
-[node name="BoxChute" type="TextureRect" parent="."]
-z_index = 100
-offset_left = 119.0
-offset_right = 403.0
-offset_bottom = 182.0
-texture = ExtResource("2_xe1j2")
-
-[node name="Combiner" type="TextureRect" parent="."]
-z_index = 10
-offset_left = 529.0
-offset_top = 350.0
-offset_right = 865.0
-offset_bottom = 552.0
-texture = ExtResource("4_ua00q")
-metadata/is_combiner = true
-
-[node name="Rect1" type="TextureRect" parent="Combiner"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 76.0
-offset_right = 135.0
-offset_bottom = 156.0
-
-[node name="Rect2" type="TextureRect" parent="Combiner"]
-layout_mode = 0
-offset_left = 205.0
-offset_top = 76.0
-offset_right = 286.0
-offset_bottom = 157.0
-
-[node name="ProgressBar" type="ProgressBar" parent="Combiner"]
-layout_mode = 0
-offset_top = 200.0
-offset_right = 336.0
-offset_bottom = 227.0
-show_percentage = false
-
-[node name="Smoke" parent="Combiner" instance=ExtResource("5_ckkbe")]
-visible = false
-z_index = -1
-position = Vector2(166, 56)
-
-[node name="Shutters" type="Node2D" parent="Combiner"]
-
-[node name="Shutter1" type="TextureRect" parent="Combiner/Shutters"]
-visible = false
-z_index = 35
-offset_left = 51.0
-offset_top = 76.0
-offset_right = 138.0
-offset_bottom = 161.0
-texture = ExtResource("4_fvsgo")
-
-[node name="Shutter2" type="TextureRect" parent="Combiner/Shutters"]
-visible = false
-z_index = 35
-offset_left = 203.0
-offset_top = 76.0
-offset_right = 290.0
-offset_bottom = 161.0
-texture = ExtResource("4_fvsgo")
-
-[node name="Sound" type="AudioStreamPlayer2D" parent="Combiner"]
-stream = ExtResource("6_ujyk3")
-
-[node name="ArmMaker" type="TextureRect" parent="."]
-z_index = 10
-offset_left = 925.0
-offset_top = 389.0
-offset_right = 1087.0
-offset_bottom = 545.0
-size_flags_horizontal = 4
-texture = ExtResource("3_g8g88")
-
-[node name="ProgressBar" type="ProgressBar" parent="ArmMaker"]
-layout_mode = 0
-offset_top = 156.0
-offset_right = 162.0
-offset_bottom = 183.0
-show_percentage = false
-
-[node name="Shutters" type="Node2D" parent="ArmMaker"]
-
-[node name="Shutter" type="TextureRect" parent="ArmMaker/Shutters"]
-visible = false
-z_index = 35
-offset_left = 37.0
-offset_top = 46.0
-offset_right = 124.0
-offset_bottom = 131.0
-texture = ExtResource("4_fvsgo")
-
-[node name="Smoke" parent="ArmMaker" instance=ExtResource("5_ckkbe")]
-visible = false
-z_index = -1
-position = Vector2(71, 54)
-
-[node name="Sound" type="AudioStreamPlayer2D" parent="ArmMaker"]
-stream = ExtResource("8_a24jg")
-
-[node name="HeadMaker" type="TextureRect" parent="."]
-z_index = 10
-offset_left = 1146.0
-offset_top = 389.0
-offset_right = 1308.0
-offset_bottom = 545.0
-size_flags_horizontal = 4
-texture = ExtResource("5_8g3tn")
-
-[node name="ProgressBar" type="ProgressBar" parent="HeadMaker"]
-layout_mode = 0
-offset_top = 156.0
-offset_right = 162.0
-offset_bottom = 183.0
-show_percentage = false
-
-[node name="Shutters" type="Node2D" parent="HeadMaker"]
-
-[node name="Shutter" type="TextureRect" parent="HeadMaker/Shutters"]
-visible = false
-z_index = 35
-offset_left = 38.0
-offset_top = 46.0
-offset_right = 125.0
-offset_bottom = 131.0
-texture = ExtResource("4_fvsgo")
-
-[node name="Smoke" parent="HeadMaker" instance=ExtResource("5_ckkbe")]
-visible = false
-z_index = -1
-position = Vector2(66, 56)
-
-[node name="Sound" type="AudioStreamPlayer2D" parent="HeadMaker"]
-stream = ExtResource("8_a24jg")
-
-[node name="LegMaker" type="TextureRect" parent="."]
-z_index = 10
-offset_left = 1371.0
-offset_top = 389.0
-offset_right = 1533.0
-offset_bottom = 545.0
-size_flags_horizontal = 4
-texture = ExtResource("6_lrvnr")
-
-[node name="ProgressBar" type="ProgressBar" parent="LegMaker"]
-layout_mode = 0
-offset_top = 156.0
-offset_right = 162.0
-offset_bottom = 183.0
-show_percentage = false
-
-[node name="Shutters" type="Node2D" parent="LegMaker"]
-
-[node name="Shutter" type="TextureRect" parent="LegMaker/Shutters"]
-visible = false
-z_index = 35
-offset_left = 38.0
-offset_top = 46.0
-offset_right = 125.0
-offset_bottom = 131.0
-texture = ExtResource("4_fvsgo")
-
-[node name="Smoke" parent="LegMaker" instance=ExtResource("5_ckkbe")]
-visible = false
-z_index = -1
-position = Vector2(71, 46)
-
-[node name="Sound" type="AudioStreamPlayer2D" parent="LegMaker"]
-stream = ExtResource("8_a24jg")
-
-[node name="ConveyorBelt" parent="." instance=ExtResource("7_vb6dy")]
-position = Vector2(890, 926)
-scale = Vector2(0.95, 0.95)
-
-[node name="AudioLoop" type="AudioStreamPlayer" parent="ConveyorBelt"]
-stream = ExtResource("10_d3eta")
-volume_db = -12.0
-
-[node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_umnly")
-volume_db = -8.0
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1812, 903)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-z_index = 50
-position = Vector2(9.00006, 3.99998)
-rotation = -0.261799
-scale = Vector2(1.45244, 1.45251)
-texture = ExtResource("9_48jpm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(55.567, 239.92)
-rotation = 1.309
-shape = SubResource("RectangleShape2D_lblqg")
-debug_color = Color(0.811765, 0.333333, 0.615686, 0.419608)
-
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="UILayer"]
 offset_left = 890.0
 offset_top = 81.0
 offset_right = 1026.0
@@ -296,7 +67,7 @@ text = "$0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabelHeader" type="Label" parent="."]
+[node name="ScoreLabelHeader" type="Label" parent="UILayer"]
 offset_left = 867.0
 offset_top = 39.0
 offset_right = 1052.0
@@ -307,10 +78,16 @@ text = "Wages Earned:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HealthUI" type="Node2D" parent="."]
-position = Vector2(1683, 39)
+[node name="HealthUI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1683.0
+offset_top = 39.0
+offset_right = 1683.0
+offset_bottom = 39.0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthUI"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UILayer/HealthUI"]
+layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 value = 100.0
@@ -318,7 +95,8 @@ texture_under = ExtResource("11_w12p7")
 texture_progress = ExtResource("12_tg4hy")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="HealthUI"]
+[node name="Label" type="Label" parent="UILayer/HealthUI"]
+layout_mode = 0
 offset_left = 73.0
 offset_right = 199.0
 offset_bottom = 32.0
@@ -329,24 +107,79 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="RobotPanel1" type="TextureRect" parent="."]
-offset_left = 1727.0
-offset_top = 81.0
-offset_right = 1921.0
-offset_bottom = 358.0
-texture = ExtResource("11_cbc8v")
-expand_mode = 1
-stretch_mode = 4
-metadata/RequestIndex = 0
+[node name="Machines" type="Node2D" parent="."]
 
-[node name="RobotPanel2" type="TextureRect" parent="."]
-offset_left = 1727.0
-offset_top = 368.0
-offset_right = 1921.0
-offset_bottom = 645.0
-texture = ExtResource("11_cbc8v")
-expand_mode = 1
-stretch_mode = 4
-metadata/RequestIndex = 1
+[node name="BoxChute" parent="Machines" instance=ExtResource("18_na4wv")]
+position = Vector2(261, 91)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Combiner" parent="Machines" instance=ExtResource("19_uxsoc")]
+position = Vector2(696, 451)
+
+[node name="HeadMoulder" parent="Machines" instance=ExtResource("20_oq44j")]
+position = Vector2(1006, 465)
+
+[node name="ArmMoulder" parent="Machines" instance=ExtResource("21_inwmn")]
+position = Vector2(1227, 467)
+
+[node name="LegMaker" parent="Machines" instance=ExtResource("22_8yisn")]
+position = Vector2(1453, 466)
+
+[node name="ConveyorBelt" parent="." instance=ExtResource("7_vb6dy")]
+position = Vector2(841, 898)
+
+[node name="AudioLoop" type="AudioStreamPlayer" parent="ConveyorBelt"]
+stream = ExtResource("10_d3eta")
+volume_db = -12.0
+
+[node name="InvisWalls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="InvisWalls"]
+position = Vector2(42, 873)
+shape = SubResource("SegmentShape2D_qrr1b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisWalls"]
+position = Vector2(1866, 0)
+shape = SubResource("WorldBoundaryShape2D_bngdr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisWalls"]
+position = Vector2(0, 397)
+shape = SubResource("WorldBoundaryShape2D_8j0v1")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="InvisWalls"]
+position = Vector2(939, 1080)
+shape = SubResource("SegmentShape2D_txhnj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="InvisWalls"]
+position = Vector2(1922, 445)
+shape = SubResource("SegmentShape2D_5dftj")
+
+[node name="GarbageCollectArea" type="Area2D" parent="."]
+position = Vector2(1802, 1163)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageCollectArea"]
+shape = SubResource("WorldBoundaryShape2D_lagcv")
+debug_color = Color(0.811765, 0.333333, 0.615686, 0.419608)
+
+[node name="Submissions" type="Node2D" parent="."]
+
+[node name="RobotRequest" parent="Submissions" instance=ExtResource("5_nd3l0")]
+position = Vector2(1800, 258)
+
+[node name="RobotRequest2" parent="Submissions" instance=ExtResource("5_nd3l0")]
+position = Vector2(1800, 616)
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_umnly")
+volume_db = -8.0
+autoplay = true
+
+[connection signal="spawned_box" from="Machines/BoxChute" to="." method="_on_spawn_object"]
+[connection signal="created_product" from="Machines/Combiner" to="." method="_on_spawn_object"]
+[connection signal="created_product" from="Machines/HeadMoulder" to="." method="_on_spawn_object"]
+[connection signal="created_product" from="Machines/ArmMoulder" to="." method="_on_spawn_object"]
+[connection signal="created_product" from="Machines/LegMaker" to="." method="_on_spawn_object"]
+[connection signal="body_entered" from="GarbageCollectArea" to="." method="_on_garbage_collect_area_body_entered"]
+[connection signal="complete" from="Submissions/RobotRequest" to="." method="_on_robot_request_complete"]
+[connection signal="placed_slot" from="Submissions/RobotRequest" to="." method="_on_robot_request_placed_slot"]
+[connection signal="complete" from="Submissions/RobotRequest2" to="." method="_on_robot_request_2_complete"]
+[connection signal="placed_slot" from="Submissions/RobotRequest2" to="." method="_on_robot_request_2_placed_slot"]

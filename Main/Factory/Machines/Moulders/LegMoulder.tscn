@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://mbsoielctpme"]
+
+[ext_resource type="PackedScene" uid="uid://d2lao71ydq8iq" path="res://Main/Factory/Machines/Moulders/Moulder.tscn" id="1_tanow"]
+[ext_resource type="Texture2D" uid="uid://n3lmjmjt1lwm" path="res://Assets/LegMaker.png" id="2_sxktv"]
+[ext_resource type="PackedScene" uid="uid://cbyposufs6c4t" path="res://Main/Factory/GrabbableBody/RobotPart/Leg.tscn" id="2_yemya"]
+
+[node name="LegMaker" instance=ExtResource("1_tanow")]
+product_scene = ExtResource("2_yemya")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_sxktv")
+
+[node name="SpawnPosition" parent="." index="5"]
+position = Vector2(0, -128)
