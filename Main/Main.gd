@@ -1,6 +1,7 @@
 extends Node
 
 enum BoxType {BLANK, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET}
+enum RobotPart {BODY, HEAD, ARM, LEG}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
