@@ -13,6 +13,48 @@ var combiner_box2: ChuteBox = null
 var health: float = 100
 var health_decay: float = 5
 
+class Producer:
+	var duration: float
+	var bar: ProgressBar
+	var shutters: Array
+	var timer: float = 0.0
+	var payload: Callable = func(): print("Poof!")
+	var loaded: bool = false
+
+	func _init(duration: float, bar: ProgressBar, shutters: Array):
+		self.duration = duration
+		self.bar = bar
+		self.shutters = shutters
+
+	func tick(delta: float):
+		self.timer = max(0.0, self.timer - delta)
+		self.bar.value = 100.0 * self.timer / self.duration
+		self.set_shutters()
+		if self.loaded and self.timer == 0.0:
+			self.loaded = false
+			self.payload.call()
+
+	func start():
+		self.loaded = true
+		self.timer = self.duration
+		self.tick(0.0)
+		self.set_shutters()
+
+	func ready():
+		return self.timer == 0.0
+		
+	func set_shutters():
+		var visible: bool = self.timer > 0.0
+		for shutter in self.shutters:
+			shutter.visible = visible
+
+@onready var producers: Dictionary = {
+	combiner = Producer.new(3.0, $Combiner/ProgressBar, [$Combiner/Shutter1, $Combiner/Shutter2]),
+	headmaker = Producer.new(3.0, $HeadMaker/ProgressBar, [$HeadMaker/Shutter]),
+	armmaker = Producer.new(3.0, $ArmMaker/ProgressBar, [$ArmMaker/Shutter]),
+	legmaker = Producer.new(3.0, $LegMaker/ProgressBar, [$LegMaker/Shutter]),
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$BGMusic.play()
@@ -23,6 +65,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timer += delta
+	
+	for key in producers:
+		producers[key].tick(delta)
+
 	if timer >= next_spawn:
 		next_spawn += box_interval
 		var new_box = box.instantiate()
@@ -48,7 +94,7 @@ func _process(delta):
 					combiner_produce(Main.BoxType.VIOLET)
 				elif combiner_box2.type == Main.BoxType.YELLOW:
 					combiner_produce(Main.BoxType.GREEN)
-					
+
 	health = max(0, health - health_decay * delta)
 	$HealthUI/TextureProgressBar.value = health
 
@@ -71,17 +117,17 @@ func _input(event):
 						grabbed_box.disable_gravity()
 						break
 			elif grabbed_box and !event.pressed:
-				if grabbed_box and !combiner_box1 and $Combiner/Rect1.get_global_rect().has_point(get_global_mouse_position()):
-					grabbed_box.snap_to($Combiner/Rect1.position + $Combiner/Rect1.size/2)
+				if producers.combiner.ready() and grabbed_box and !combiner_box1 and $Combiner/Rect1.get_global_rect().has_point(get_global_mouse_position()):
+					grabbed_box.snap_to($Combiner/Rect1.global_position + $Combiner/Rect1.size/2)
 					combiner_box1 = grabbed_box
-				elif grabbed_box and !combiner_box2 and $Combiner/Rect2.get_global_rect().has_point(get_global_mouse_position()):
-					grabbed_box.snap_to($Combiner/Rect2.position + $Combiner/Rect2.size/2)
+				elif producers.combiner.ready() and grabbed_box and !combiner_box2 and $Combiner/Rect2.get_global_rect().has_point(get_global_mouse_position()):
+					grabbed_box.snap_to($Combiner/Rect2.global_position + $Combiner/Rect2.size/2)
 					combiner_box2 = grabbed_box
-				elif grabbed_box and $HeadMaker.get_global_rect().has_point(get_global_mouse_position()):
+				elif producers.headmaker.ready() and grabbed_box and $HeadMaker.get_global_rect().has_point(get_global_mouse_position()):
 					grabbed_box.queue_free()
-				elif grabbed_box and $ArmMaker.get_global_rect().has_point(get_global_mouse_position()):
+				elif producers.armmaker.ready() and grabbed_box and $ArmMaker.get_global_rect().has_point(get_global_mouse_position()):
 					grabbed_box.queue_free()
-				elif grabbed_box and $LegMaker.get_global_rect().has_point(get_global_mouse_position()):
+				elif producers.legmaker.ready() and grabbed_box and $LegMaker.get_global_rect().has_point(get_global_mouse_position()):
 					grabbed_box.queue_free()
 				else:
 					grabbed_box.unsnap()
@@ -98,25 +144,19 @@ func _physics_process(delta):
 			vec_to_mouse = vec_to_mouse.normalized() * vec_limit
 		body.linear_velocity = vec_to_mouse * 50
 
-
-func _on_combiner_area_1_input_event(viewport, event, shape_idx):
-	pass # Replace with function body.
-
-
-func _on_combiner_area_2_input_event(viewport, event, shape_idx):
-	pass # Replace with function body.
-
 func combiner_produce(type: Main.BoxType):
+	producers.combiner.start()
 	combiner_box1.queue_free()
 	combiner_box2.queue_free()
 	combiner_box1 = null
 	combiner_box2 = null
-	var new_box = box.instantiate()
-	new_box.init(type)
-	new_box.position.x = $Combiner.position.x + $Combiner.size.x/2
-	new_box.position.y = $Combiner.position.y - 20
-	new_box.get_node("RigidBody2D").linear_velocity = Vector2(-5 + randf() * 10, -300)
-	add_child(new_box)
+	producers.combiner.payload = func():
+		var new_box = box.instantiate()
+		new_box.init(type)
+		new_box.position.x = $Combiner.position.x + $Combiner.size.x/2
+		new_box.position.y = $Combiner.position.y - 20
+		new_box.get_node("RigidBody2D").linear_velocity = Vector2(-5 + randf() * 10, -300)
+		add_child(new_box)
 
 func _on_area_2d_body_entered(body):
 	var obj = body.get_owner()

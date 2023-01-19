@@ -1,10 +1,12 @@
-[gd_scene load_steps=26 format=3 uid="uid://cmxariydnjba0"]
+[gd_scene load_steps=28 format=3 uid="uid://cmxariydnjba0"]
 
 [ext_resource type="Script" path="res://Main/Factory/Factory.gd" id="1_gfdr1"]
 [ext_resource type="Texture2D" uid="uid://dctqf26ol1jsw" path="res://Assets/Box Chute.png" id="2_xe1j2"]
 [ext_resource type="Texture2D" uid="uid://bvh01t87y7sdn" path="res://Assets/ArmMaker.png" id="3_g8g88"]
+[ext_resource type="Texture2D" uid="uid://cdull8sy0l3do" path="res://Assets/Shutter.png" id="4_fvsgo"]
 [ext_resource type="Texture2D" uid="uid://bs08phxdjf6ql" path="res://Assets/Combiner.png" id="4_ua00q"]
 [ext_resource type="Texture2D" uid="uid://c5ihnke3tudau" path="res://Assets/HeadMaker.png" id="5_8g3tn"]
+[ext_resource type="PackedScene" uid="uid://kma7hnn5u1a2" path="res://Main/Particles/Smoke.tscn" id="5_ckkbe"]
 [ext_resource type="Texture2D" uid="uid://n3lmjmjt1lwm" path="res://Assets/LegMaker.png" id="6_lrvnr"]
 [ext_resource type="PackedScene" uid="uid://sdw3i0pl6i41" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.tscn" id="7_vb6dy"]
 [ext_resource type="AudioStream" uid="uid://42qp48e14f3f" path="res://Assets/Sound/Music/main_theme.wav" id="8_xbghj"]
@@ -16,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://btlju8sm7p2xh" path="res://Assets/RightPanel/PanelProgressBar_full.png" id="12_tg4hy"]
 [ext_resource type="PackedScene" uid="uid://c1wxvf0y7q5pk" path="res://Main/Factory/RobotComponents/Head.tscn" id="13_hk7qe"]
 [ext_resource type="PackedScene" uid="uid://mag2xhr64h26" path="res://Main/Factory/RobotComponents/Leg.tscn" id="14_150uc"]
-[ext_resource type="PackedScene" uid="uid://cefeg0nvh6c5s" path="res://Main/Factory/RobotComponents/Body.tscn" id="17_v8rii"]
+[ext_resource type="PackedScene" uid="uid://vu06hvrd6ikt" path="res://Main/Factory/RobotComponents/Body.tscn" id="17_v8rii"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wejcf"]
 a = Vector2(-49, -16)
@@ -95,6 +97,7 @@ offset_bottom = 182.0
 texture = ExtResource("2_xe1j2")
 
 [node name="Combiner" type="TextureRect" parent="."]
+z_index = 10
 offset_left = 529.0
 offset_top = 350.0
 offset_right = 865.0
@@ -102,18 +105,51 @@ offset_bottom = 552.0
 texture = ExtResource("4_ua00q")
 
 [node name="Rect1" type="TextureRect" parent="Combiner"]
+layout_mode = 0
 offset_left = 53.0
 offset_top = 76.0
 offset_right = 135.0
 offset_bottom = 156.0
 
 [node name="Rect2" type="TextureRect" parent="Combiner"]
+layout_mode = 0
 offset_left = 205.0
 offset_top = 76.0
 offset_right = 286.0
 offset_bottom = 157.0
 
+[node name="ProgressBar" type="ProgressBar" parent="Combiner"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 336.0
+offset_bottom = 227.0
+
+[node name="Shutter1" type="TextureRect" parent="Combiner"]
+visible = false
+z_index = 35
+layout_mode = 0
+offset_left = 53.0
+offset_top = 76.0
+offset_right = 140.0
+offset_bottom = 161.0
+texture = ExtResource("4_fvsgo")
+
+[node name="Shutter2" type="TextureRect" parent="Combiner"]
+visible = false
+z_index = 35
+layout_mode = 0
+offset_left = 205.0
+offset_top = 76.0
+offset_right = 292.0
+offset_bottom = 161.0
+texture = ExtResource("4_fvsgo")
+
+[node name="Smoke" parent="Combiner" instance=ExtResource("5_ckkbe")]
+z_index = -1
+position = Vector2(166, 56)
+
 [node name="ArmMaker" type="TextureRect" parent="."]
+z_index = 10
 offset_left = 925.0
 offset_top = 389.0
 offset_right = 1087.0
@@ -121,7 +157,24 @@ offset_bottom = 545.0
 size_flags_horizontal = 4
 texture = ExtResource("3_g8g88")
 
+[node name="ProgressBar" type="ProgressBar" parent="ArmMaker"]
+layout_mode = 0
+offset_top = 156.0
+offset_right = 162.0
+offset_bottom = 183.0
+
+[node name="Shutter" type="TextureRect" parent="ArmMaker"]
+visible = false
+z_index = 35
+layout_mode = 0
+offset_left = 39.0
+offset_top = 46.0
+offset_right = 126.0
+offset_bottom = 131.0
+texture = ExtResource("4_fvsgo")
+
 [node name="HeadMaker" type="TextureRect" parent="."]
+z_index = 10
 offset_left = 1146.0
 offset_top = 389.0
 offset_right = 1308.0
@@ -129,13 +182,46 @@ offset_bottom = 545.0
 size_flags_horizontal = 4
 texture = ExtResource("5_8g3tn")
 
+[node name="ProgressBar" type="ProgressBar" parent="HeadMaker"]
+layout_mode = 0
+offset_top = 156.0
+offset_right = 162.0
+offset_bottom = 183.0
+
+[node name="Shutter" type="TextureRect" parent="HeadMaker"]
+visible = false
+z_index = 35
+layout_mode = 0
+offset_left = 39.0
+offset_top = 46.0
+offset_right = 126.0
+offset_bottom = 131.0
+texture = ExtResource("4_fvsgo")
+
 [node name="LegMaker" type="TextureRect" parent="."]
+z_index = 10
 offset_left = 1371.0
 offset_top = 389.0
 offset_right = 1533.0
 offset_bottom = 545.0
 size_flags_horizontal = 4
 texture = ExtResource("6_lrvnr")
+
+[node name="ProgressBar" type="ProgressBar" parent="LegMaker"]
+layout_mode = 0
+offset_top = 156.0
+offset_right = 162.0
+offset_bottom = 183.0
+
+[node name="Shutter" type="TextureRect" parent="LegMaker"]
+visible = false
+z_index = 35
+layout_mode = 0
+offset_left = 39.0
+offset_top = 46.0
+offset_right = 126.0
+offset_bottom = 131.0
+texture = ExtResource("4_fvsgo")
 
 [node name="ConveyorBelt" parent="." instance=ExtResource("7_vb6dy")]
 position = Vector2(890, 926)

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=10 format=3 uid="uid://vu06hvrd6ikt"]
-=======
-[gd_scene load_steps=10 format=3 uid="uid://cefeg0nvh6c5s"]
->>>>>>> main
 
 [ext_resource type="Texture2D" uid="uid://ch1iut3jqabns" path="res://Assets/Box-Sheet.png" id="1_yo2wl"]
 
