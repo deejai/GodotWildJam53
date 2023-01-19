@@ -15,45 +15,45 @@ var health_decay: float = 5
 
 class Producer:
 	var duration: float
-	var bar: ProgressBar
-	var shutters: Array
+	var node: Node
 	var timer: float = 0.0
 	var payload: Callable = func(): print("Poof!")
 	var loaded: bool = false
 
-	func _init(duration: float, bar: ProgressBar, shutters: Array):
+	func _init(duration: float, node: Node):
 		self.duration = duration
-		self.bar = bar
-		self.shutters = shutters
+		self.node = node
 
 	func tick(delta: float):
 		self.timer = max(0.0, self.timer - delta)
-		self.bar.value = 0.0 if self.timer == 0.0 else 100.0 * (1 - self.timer / self.duration)
-		self.bar.visible = self.timer > 0.0
-		self.set_shutters()
+		var bar = self.node.get_node("ProgressBar")
+		bar.value = 0.0 if self.timer == 0.0 else 100.0 * (1 - self.timer / self.duration)
+		bar.visible = self.timer > 0.0
 		if self.loaded and self.timer == 0.0:
 			self.loaded = false
 			self.payload.call()
+			self.set_visuals()
 
 	func start():
 		self.loaded = true
 		self.timer = self.duration
 		self.tick(0.0)
-		self.set_shutters()
+		self.set_visuals()
 
 	func ready():
 		return self.timer == 0.0
 		
-	func set_shutters():
-		var visible: bool = self.timer > 0.0
-		for shutter in self.shutters:
-			shutter.visible = visible
+	func set_visuals():
+		var busy: bool = self.timer > 0.0
+		for shutter in self.node.get_node("Shutters").get_children():
+			shutter.visible = busy
+		self.node.get_node("Smoke").visible = busy
 
 @onready var producers: Dictionary = {
-	combiner = Producer.new(3.0, $Combiner/ProgressBar, [$Combiner/Shutter1, $Combiner/Shutter2]),
-	headmaker = Producer.new(3.0, $HeadMaker/ProgressBar, [$HeadMaker/Shutter]),
-	armmaker = Producer.new(3.0, $ArmMaker/ProgressBar, [$ArmMaker/Shutter]),
-	legmaker = Producer.new(3.0, $LegMaker/ProgressBar, [$LegMaker/Shutter]),
+	combiner = Producer.new(3.0, $Combiner),
+	headmaker = Producer.new(3.0, $HeadMaker),
+	armmaker = Producer.new(3.0, $ArmMaker),
+	legmaker = Producer.new(3.0, $LegMaker),
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -76,8 +76,7 @@ func _process(delta):
 		new_box.init([Main.BoxType.RED, Main.BoxType.BLUE, Main.BoxType.YELLOW][randi() % 3])
 		new_box.position.x = $BoxChute.position.x + $BoxChute.size.x/2 - 75 + randf() * 150
 		add_child(new_box)
-		print("box spawned at ", timer, " seconds")
-		
+
 	if combiner_box1 != null and combiner_box2 != null:
 		match combiner_box1.type:
 			Main.BoxType.RED:
