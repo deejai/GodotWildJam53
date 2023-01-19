@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfxi5y7v8qoae"]
+[gd_scene load_steps=26 format=3 uid="uid://cmxariydnjba0"]
 
 [ext_resource type="Script" path="res://Main/Factory/Factory.gd" id="1_gfdr1"]
 [ext_resource type="Texture2D" uid="uid://dctqf26ol1jsw" path="res://Assets/Box Chute.png" id="2_xe1j2"]
@@ -6,27 +6,46 @@
 [ext_resource type="Texture2D" uid="uid://bs08phxdjf6ql" path="res://Assets/Combiner.png" id="4_ua00q"]
 [ext_resource type="Texture2D" uid="uid://c5ihnke3tudau" path="res://Assets/HeadMaker.png" id="5_8g3tn"]
 [ext_resource type="Texture2D" uid="uid://n3lmjmjt1lwm" path="res://Assets/LegMaker.png" id="6_lrvnr"]
-[ext_resource type="PackedScene" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.tscn" id="7_vb6dy"]
-[ext_resource type="AudioStream" uid="uid://42qp48e14f3f" path="res://Assets/main_theme.wav" id="8_wdvvq"]
+[ext_resource type="PackedScene" uid="uid://sdw3i0pl6i41" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.tscn" id="7_vb6dy"]
+[ext_resource type="AudioStream" uid="uid://42qp48e14f3f" path="res://Assets/Sound/Music/main_theme.wav" id="8_xbghj"]
 [ext_resource type="Texture2D" uid="uid://m53a3gof5jyv" path="res://Assets/trash.png" id="9_48jpm"]
+[ext_resource type="AudioStream" uid="uid://cp4dteyv88xr" path="res://Assets/Conveyer Belt Ambient Loop.wav" id="9_vb24g"]
+[ext_resource type="Texture2D" uid="uid://pk1wcvu8fv0t" path="res://Assets/RightPanel/RobotPanel.png" id="11_cbc8v"]
+[ext_resource type="Texture2D" uid="uid://b2oercvspehsl" path="res://Assets/RightPanel/PanelProgressBar_empty.png" id="11_w12p7"]
+[ext_resource type="PackedScene" uid="uid://c3krvxbhafqms" path="res://Main/Factory/RobotComponents/Arm.tscn" id="12_fpyrt"]
+[ext_resource type="Texture2D" uid="uid://btlju8sm7p2xh" path="res://Assets/RightPanel/PanelProgressBar_full.png" id="12_tg4hy"]
+[ext_resource type="PackedScene" uid="uid://c1wxvf0y7q5pk" path="res://Main/Factory/RobotComponents/Head.tscn" id="13_hk7qe"]
+[ext_resource type="PackedScene" uid="uid://mag2xhr64h26" path="res://Main/Factory/RobotComponents/Leg.tscn" id="14_150uc"]
+[ext_resource type="PackedScene" uid="uid://cefeg0nvh6c5s" path="res://Main/Factory/RobotComponents/Body.tscn" id="17_v8rii"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_vrysb"]
-a = Vector2(42, 110)
-b = Vector2(125, 122)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wejcf"]
+a = Vector2(-49, -16)
+b = Vector2(42, 13)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aaeor"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dm87u"]
 normal = Vector2(0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dxfdf"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6ythu"]
 normal = Vector2(1, 0)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cx18a"]
-normal = Vector2(-1, 0)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pcu7y"]
+a = Vector2(0, -443)
+b = Vector2(-1, 427)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ujhqv"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2qqv7"]
+a = Vector2(-938, -1)
+b = Vector2(794, -1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7ki2"]
-size = Vector2(33.2072, 171.12)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b67tu"]
+radius = 16.7489
+height = 490.183
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbbo6"]
+radius = 22.0266
+height = 303.033
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bknhg"]
+size = Vector2(52.6661, 185.292)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gfdr1")
@@ -39,24 +58,34 @@ metadata/_edit_lock_ = true
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-46, 764)
-shape = SubResource("SegmentShape2D_vrysb")
+position = Vector2(42, 873)
+shape = SubResource("SegmentShape2D_wejcf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(890, 0)
-shape = SubResource("WorldBoundaryShape2D_aaeor")
+position = Vector2(1866, 0)
+shape = SubResource("WorldBoundaryShape2D_dm87u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 397)
-shape = SubResource("WorldBoundaryShape2D_dxfdf")
+shape = SubResource("WorldBoundaryShape2D_6ythu")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1920, 446)
-shape = SubResource("WorldBoundaryShape2D_cx18a")
+position = Vector2(1885, 443)
+shape = SubResource("SegmentShape2D_pcu7y")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(939, 1080)
-shape = SubResource("WorldBoundaryShape2D_ujhqv")
+shape = SubResource("SegmentShape2D_2qqv7")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1911, 925)
+rotation = -0.261799
+shape = SubResource("CapsuleShape2D_b67tu")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1743, 1080)
+rotation = -0.261799
+shape = SubResource("CapsuleShape2D_fbbo6")
 
 [node name="BoxChute" type="TextureRect" parent="."]
 z_index = 100
@@ -66,33 +95,45 @@ offset_bottom = 182.0
 texture = ExtResource("2_xe1j2")
 
 [node name="Combiner" type="TextureRect" parent="."]
-offset_left = 603.0
-offset_top = 358.0
-offset_right = 939.0
-offset_bottom = 560.0
+offset_left = 529.0
+offset_top = 350.0
+offset_right = 865.0
+offset_bottom = 552.0
 texture = ExtResource("4_ua00q")
 
+[node name="Rect1" type="TextureRect" parent="Combiner"]
+offset_left = 53.0
+offset_top = 76.0
+offset_right = 135.0
+offset_bottom = 156.0
+
+[node name="Rect2" type="TextureRect" parent="Combiner"]
+offset_left = 205.0
+offset_top = 76.0
+offset_right = 286.0
+offset_bottom = 157.0
+
 [node name="ArmMaker" type="TextureRect" parent="."]
-offset_left = 999.0
-offset_top = 397.0
-offset_right = 1161.0
-offset_bottom = 553.0
+offset_left = 925.0
+offset_top = 389.0
+offset_right = 1087.0
+offset_bottom = 545.0
 size_flags_horizontal = 4
 texture = ExtResource("3_g8g88")
 
 [node name="HeadMaker" type="TextureRect" parent="."]
-offset_left = 1220.0
-offset_top = 397.0
-offset_right = 1382.0
-offset_bottom = 553.0
+offset_left = 1146.0
+offset_top = 389.0
+offset_right = 1308.0
+offset_bottom = 545.0
 size_flags_horizontal = 4
 texture = ExtResource("5_8g3tn")
 
 [node name="LegMaker" type="TextureRect" parent="."]
-offset_left = 1445.0
-offset_top = 397.0
-offset_right = 1607.0
-offset_bottom = 553.0
+offset_left = 1371.0
+offset_top = 389.0
+offset_right = 1533.0
+offset_bottom = 545.0
 size_flags_horizontal = 4
 texture = ExtResource("6_lrvnr")
 
@@ -100,30 +141,105 @@ texture = ExtResource("6_lrvnr")
 position = Vector2(890, 926)
 scale = Vector2(0.95, 0.95)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_wdvvq")
+[node name="AudioLoop" type="AudioStreamPlayer" parent="ConveyorBelt"]
+stream = ExtResource("9_vb24g")
+volume_db = -12.0
 
-[node name="CombinerRect1" type="TextureRect" parent="."]
-offset_left = 656.0
-offset_top = 434.0
-offset_right = 738.0
-offset_bottom = 514.0
-
-[node name="CombinerRect2" type="TextureRect" parent="."]
-offset_left = 808.0
-offset_top = 434.0
-offset_right = 889.0
-offset_bottom = 515.0
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xbghj")
+volume_db = -8.0
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1812, 903)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+z_index = 50
+position = Vector2(9.00006, 3.99998)
+rotation = -0.261799
+scale = Vector2(1.45244, 1.45251)
 texture = ExtResource("9_48jpm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(19.2405, 26.2404)
-rotation = 0.785397
-shape = SubResource("RectangleShape2D_t7ki2")
+position = Vector2(55.567, 239.92)
+rotation = 1.309
+shape = SubResource("RectangleShape2D_bknhg")
+debug_color = Color(0.811765, 0.333333, 0.615686, 0.419608)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 890.0
+offset_top = 81.0
+offset_right = 1026.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(0, 0.384314, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabelHeader" type="Label" parent="."]
+offset_left = 867.0
+offset_top = 39.0
+offset_right = 1052.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+theme_override_font_sizes/font_size = 26
+text = "Wages Earned:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthUI" type="Node2D" parent="."]
+position = Vector2(1683, 39)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthUI"]
+offset_right = 64.0
+offset_bottom = 64.0
+value = 100.0
+texture_under = ExtResource("11_w12p7")
+texture_progress = ExtResource("12_tg4hy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HealthUI"]
+offset_left = 73.0
+offset_right = 199.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Performance"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RobotPanel1" type="TextureRect" parent="."]
+offset_left = 1727.0
+offset_top = 81.0
+offset_right = 1921.0
+offset_bottom = 358.0
+texture = ExtResource("11_cbc8v")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RobotPanel2" type="TextureRect" parent="."]
+offset_left = 1727.0
+offset_top = 368.0
+offset_right = 1921.0
+offset_bottom = 645.0
+texture = ExtResource("11_cbc8v")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Head" parent="." instance=ExtResource("12_fpyrt")]
+position = Vector2(1777, 494)
+
+[node name="Head2" parent="." instance=ExtResource("13_hk7qe")]
+position = Vector2(1828, 416)
+
+[node name="Head3" parent="." instance=ExtResource("14_150uc")]
+position = Vector2(1810, 568)
+
+[node name="Head5" parent="." instance=ExtResource("17_v8rii")]
+position = Vector2(3641, 694)
+
+[node name="Head4" parent="." instance=ExtResource("17_v8rii")]
+position = Vector2(1828, 195)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
