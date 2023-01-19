@@ -1,50 +1,50 @@
-[gd_scene load_steps=26 format=3 uid="uid://cmxariydnjba0"]
+[gd_scene load_steps=26 format=3 uid="uid://blq04p4xpodlh"]
 
 [ext_resource type="Script" path="res://Main/Factory/Factory.gd" id="1_gfdr1"]
 [ext_resource type="Texture2D" uid="uid://dctqf26ol1jsw" path="res://Assets/Box Chute.png" id="2_xe1j2"]
 [ext_resource type="Texture2D" uid="uid://bvh01t87y7sdn" path="res://Assets/ArmMaker.png" id="3_g8g88"]
+[ext_resource type="Texture2D" uid="uid://cdull8sy0l3do" path="res://Assets/Shutter.png" id="4_fvsgo"]
 [ext_resource type="Texture2D" uid="uid://bs08phxdjf6ql" path="res://Assets/Combiner.png" id="4_ua00q"]
 [ext_resource type="Texture2D" uid="uid://c5ihnke3tudau" path="res://Assets/HeadMaker.png" id="5_8g3tn"]
+[ext_resource type="PackedScene" uid="uid://kma7hnn5u1a2" path="res://Main/Particles/Smoke.tscn" id="5_ckkbe"]
 [ext_resource type="Texture2D" uid="uid://n3lmjmjt1lwm" path="res://Assets/LegMaker.png" id="6_lrvnr"]
+[ext_resource type="AudioStream" uid="uid://mj45hqjd1j2v" path="res://Assets/Sound/SFX/Combiner Complete SFX.wav" id="6_ujyk3"]
 [ext_resource type="PackedScene" uid="uid://sdw3i0pl6i41" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.tscn" id="7_vb6dy"]
-[ext_resource type="AudioStream" uid="uid://42qp48e14f3f" path="res://Assets/Sound/Music/main_theme.wav" id="8_xbghj"]
+[ext_resource type="AudioStream" uid="uid://1kus1gti5ddf" path="res://Assets/Sound/SFX/Moulder Complete SFX.wav" id="8_a24jg"]
 [ext_resource type="Texture2D" uid="uid://m53a3gof5jyv" path="res://Assets/trash.png" id="9_48jpm"]
-[ext_resource type="AudioStream" uid="uid://cp4dteyv88xr" path="res://Assets/Conveyer Belt Ambient Loop.wav" id="9_vb24g"]
+[ext_resource type="AudioStream" uid="uid://cp4dteyv88xr" path="res://Assets/Sound/SFX/Conveyer Belt Ambient Loop.wav" id="10_d3eta"]
 [ext_resource type="Texture2D" uid="uid://pk1wcvu8fv0t" path="res://Assets/RightPanel/RobotPanel.png" id="11_cbc8v"]
 [ext_resource type="Texture2D" uid="uid://b2oercvspehsl" path="res://Assets/RightPanel/PanelProgressBar_empty.png" id="11_w12p7"]
-[ext_resource type="PackedScene" uid="uid://c3krvxbhafqms" path="res://Main/Factory/RobotComponents/Arm.tscn" id="12_fpyrt"]
 [ext_resource type="Texture2D" uid="uid://btlju8sm7p2xh" path="res://Assets/RightPanel/PanelProgressBar_full.png" id="12_tg4hy"]
-[ext_resource type="PackedScene" uid="uid://c1wxvf0y7q5pk" path="res://Main/Factory/RobotComponents/Head.tscn" id="13_hk7qe"]
-[ext_resource type="PackedScene" uid="uid://mag2xhr64h26" path="res://Main/Factory/RobotComponents/Leg.tscn" id="14_150uc"]
-[ext_resource type="PackedScene" uid="uid://cefeg0nvh6c5s" path="res://Main/Factory/RobotComponents/Body.tscn" id="17_v8rii"]
+[ext_resource type="AudioStream" uid="uid://b57gwolug0mt0" path="res://Assets/Sound/Music/REAL THEME.wav" id="13_umnly"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_wejcf"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_k758o"]
 a = Vector2(-49, -16)
 b = Vector2(42, 13)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dm87u"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_agygm"]
 normal = Vector2(0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6ythu"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88j3b"]
 normal = Vector2(1, 0)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_pcu7y"]
-a = Vector2(0, -443)
-b = Vector2(-1, 427)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_2qqv7"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5x0w6"]
 a = Vector2(-938, -1)
 b = Vector2(794, -1)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b67tu"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4wro"]
 radius = 16.7489
 height = 490.183
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbbo6"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gma6a"]
 radius = 22.0266
 height = 303.033
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bknhg"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tmmmh"]
+a = Vector2(0, -443)
+b = Vector2(-1, 427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lblqg"]
 size = Vector2(52.6661, 185.292)
 
 [node name="Game" type="Node2D"]
@@ -59,33 +59,33 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(42, 873)
-shape = SubResource("SegmentShape2D_wejcf")
+shape = SubResource("SegmentShape2D_k758o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1866, 0)
-shape = SubResource("WorldBoundaryShape2D_dm87u")
+shape = SubResource("WorldBoundaryShape2D_agygm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 397)
-shape = SubResource("WorldBoundaryShape2D_6ythu")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1885, 443)
-shape = SubResource("SegmentShape2D_pcu7y")
+shape = SubResource("WorldBoundaryShape2D_88j3b")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(939, 1080)
-shape = SubResource("SegmentShape2D_2qqv7")
+shape = SubResource("SegmentShape2D_5x0w6")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1911, 925)
 rotation = -0.261799
-shape = SubResource("CapsuleShape2D_b67tu")
+shape = SubResource("CapsuleShape2D_s4wro")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1743, 1080)
 rotation = -0.261799
-shape = SubResource("CapsuleShape2D_fbbo6")
+shape = SubResource("CapsuleShape2D_gma6a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1922, 445)
+shape = SubResource("SegmentShape2D_tmmmh")
 
 [node name="BoxChute" type="TextureRect" parent="."]
 z_index = 100
@@ -95,25 +95,65 @@ offset_bottom = 182.0
 texture = ExtResource("2_xe1j2")
 
 [node name="Combiner" type="TextureRect" parent="."]
+z_index = 10
 offset_left = 529.0
 offset_top = 350.0
 offset_right = 865.0
 offset_bottom = 552.0
 texture = ExtResource("4_ua00q")
+metadata/is_combiner = true
 
 [node name="Rect1" type="TextureRect" parent="Combiner"]
+layout_mode = 0
 offset_left = 53.0
 offset_top = 76.0
 offset_right = 135.0
 offset_bottom = 156.0
 
 [node name="Rect2" type="TextureRect" parent="Combiner"]
+layout_mode = 0
 offset_left = 205.0
 offset_top = 76.0
 offset_right = 286.0
 offset_bottom = 157.0
 
+[node name="ProgressBar" type="ProgressBar" parent="Combiner"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 336.0
+offset_bottom = 227.0
+show_percentage = false
+
+[node name="Smoke" parent="Combiner" instance=ExtResource("5_ckkbe")]
+visible = false
+z_index = -1
+position = Vector2(166, 56)
+
+[node name="Shutters" type="Node2D" parent="Combiner"]
+
+[node name="Shutter1" type="TextureRect" parent="Combiner/Shutters"]
+visible = false
+z_index = 35
+offset_left = 51.0
+offset_top = 76.0
+offset_right = 138.0
+offset_bottom = 161.0
+texture = ExtResource("4_fvsgo")
+
+[node name="Shutter2" type="TextureRect" parent="Combiner/Shutters"]
+visible = false
+z_index = 35
+offset_left = 203.0
+offset_top = 76.0
+offset_right = 290.0
+offset_bottom = 161.0
+texture = ExtResource("4_fvsgo")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Combiner"]
+stream = ExtResource("6_ujyk3")
+
 [node name="ArmMaker" type="TextureRect" parent="."]
+z_index = 10
 offset_left = 925.0
 offset_top = 389.0
 offset_right = 1087.0
@@ -121,7 +161,34 @@ offset_bottom = 545.0
 size_flags_horizontal = 4
 texture = ExtResource("3_g8g88")
 
+[node name="ProgressBar" type="ProgressBar" parent="ArmMaker"]
+layout_mode = 0
+offset_top = 156.0
+offset_right = 162.0
+offset_bottom = 183.0
+show_percentage = false
+
+[node name="Shutters" type="Node2D" parent="ArmMaker"]
+
+[node name="Shutter" type="TextureRect" parent="ArmMaker/Shutters"]
+visible = false
+z_index = 35
+offset_left = 37.0
+offset_top = 46.0
+offset_right = 124.0
+offset_bottom = 131.0
+texture = ExtResource("4_fvsgo")
+
+[node name="Smoke" parent="ArmMaker" instance=ExtResource("5_ckkbe")]
+visible = false
+z_index = -1
+position = Vector2(71, 54)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="ArmMaker"]
+stream = ExtResource("8_a24jg")
+
 [node name="HeadMaker" type="TextureRect" parent="."]
+z_index = 10
 offset_left = 1146.0
 offset_top = 389.0
 offset_right = 1308.0
@@ -129,7 +196,34 @@ offset_bottom = 545.0
 size_flags_horizontal = 4
 texture = ExtResource("5_8g3tn")
 
+[node name="ProgressBar" type="ProgressBar" parent="HeadMaker"]
+layout_mode = 0
+offset_top = 156.0
+offset_right = 162.0
+offset_bottom = 183.0
+show_percentage = false
+
+[node name="Shutters" type="Node2D" parent="HeadMaker"]
+
+[node name="Shutter" type="TextureRect" parent="HeadMaker/Shutters"]
+visible = false
+z_index = 35
+offset_left = 38.0
+offset_top = 46.0
+offset_right = 125.0
+offset_bottom = 131.0
+texture = ExtResource("4_fvsgo")
+
+[node name="Smoke" parent="HeadMaker" instance=ExtResource("5_ckkbe")]
+visible = false
+z_index = -1
+position = Vector2(66, 56)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="HeadMaker"]
+stream = ExtResource("8_a24jg")
+
 [node name="LegMaker" type="TextureRect" parent="."]
+z_index = 10
 offset_left = 1371.0
 offset_top = 389.0
 offset_right = 1533.0
@@ -137,16 +231,42 @@ offset_bottom = 545.0
 size_flags_horizontal = 4
 texture = ExtResource("6_lrvnr")
 
+[node name="ProgressBar" type="ProgressBar" parent="LegMaker"]
+layout_mode = 0
+offset_top = 156.0
+offset_right = 162.0
+offset_bottom = 183.0
+show_percentage = false
+
+[node name="Shutters" type="Node2D" parent="LegMaker"]
+
+[node name="Shutter" type="TextureRect" parent="LegMaker/Shutters"]
+visible = false
+z_index = 35
+offset_left = 38.0
+offset_top = 46.0
+offset_right = 125.0
+offset_bottom = 131.0
+texture = ExtResource("4_fvsgo")
+
+[node name="Smoke" parent="LegMaker" instance=ExtResource("5_ckkbe")]
+visible = false
+z_index = -1
+position = Vector2(71, 46)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="LegMaker"]
+stream = ExtResource("8_a24jg")
+
 [node name="ConveyorBelt" parent="." instance=ExtResource("7_vb6dy")]
 position = Vector2(890, 926)
 scale = Vector2(0.95, 0.95)
 
 [node name="AudioLoop" type="AudioStreamPlayer" parent="ConveyorBelt"]
-stream = ExtResource("9_vb24g")
+stream = ExtResource("10_d3eta")
 volume_db = -12.0
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_xbghj")
+stream = ExtResource("13_umnly")
 volume_db = -8.0
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -162,7 +282,7 @@ texture = ExtResource("9_48jpm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(55.567, 239.92)
 rotation = 1.309
-shape = SubResource("RectangleShape2D_bknhg")
+shape = SubResource("RectangleShape2D_lblqg")
 debug_color = Color(0.811765, 0.333333, 0.615686, 0.419608)
 
 [node name="ScoreLabel" type="Label" parent="."]
@@ -217,6 +337,7 @@ offset_bottom = 358.0
 texture = ExtResource("11_cbc8v")
 expand_mode = 1
 stretch_mode = 4
+metadata/RequestIndex = 0
 
 [node name="RobotPanel2" type="TextureRect" parent="."]
 offset_left = 1727.0
@@ -226,20 +347,6 @@ offset_bottom = 645.0
 texture = ExtResource("11_cbc8v")
 expand_mode = 1
 stretch_mode = 4
-
-[node name="Head" parent="." instance=ExtResource("12_fpyrt")]
-position = Vector2(1777, 494)
-
-[node name="Head2" parent="." instance=ExtResource("13_hk7qe")]
-position = Vector2(1828, 416)
-
-[node name="Head3" parent="." instance=ExtResource("14_150uc")]
-position = Vector2(1810, 568)
-
-[node name="Head5" parent="." instance=ExtResource("17_v8rii")]
-position = Vector2(3641, 694)
-
-[node name="Head4" parent="." instance=ExtResource("17_v8rii")]
-position = Vector2(1828, 195)
+metadata/RequestIndex = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

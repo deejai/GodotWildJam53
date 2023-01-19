@@ -1,6 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cefeg0nvh6c5s"]
+[gd_scene load_steps=12 format=3 uid="uid://vu06hvrd6ikt"]
 
+[ext_resource type="Script" path="res://Main/Factory/RobotComponents/Part.gd" id="1_2u7x4"]
 [ext_resource type="Texture2D" uid="uid://ch1iut3jqabns" path="res://Assets/Box-Sheet.png" id="1_yo2wl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5g2d"]
+size = Vector2(57, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_73v5h"]
 atlas = ExtResource("1_yo2wl")
@@ -60,7 +64,15 @@ animations = [{
 }]
 
 [node name="Head" type="Node2D"]
+z_index = 25
+script = ExtResource("1_2u7x4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_b5g2d")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="RigidBody2D"]
 scale = Vector2(0.75, 0.75)
 frames = SubResource("SpriteFrames_0nyd3")
