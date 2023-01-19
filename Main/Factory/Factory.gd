@@ -28,7 +28,8 @@ class Producer:
 
 	func tick(delta: float):
 		self.timer = max(0.0, self.timer - delta)
-		self.bar.value = 100.0 * self.timer / self.duration
+		self.bar.value = 0.0 if self.timer == 0.0 else 100.0 * (1 - self.timer / self.duration)
+		self.bar.visible = self.timer > 0.0
 		self.set_shutters()
 		if self.loaded and self.timer == 0.0:
 			self.loaded = false
