@@ -18,33 +18,33 @@
 [ext_resource type="Texture2D" uid="uid://btlju8sm7p2xh" path="res://Assets/RightPanel/PanelProgressBar_full.png" id="12_tg4hy"]
 [ext_resource type="AudioStream" uid="uid://b57gwolug0mt0" path="res://Assets/Sound/Music/REAL THEME.wav" id="13_umnly"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_k758o"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vdyr6"]
 a = Vector2(-49, -16)
 b = Vector2(42, 13)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_agygm"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5bqq4"]
 normal = Vector2(0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88j3b"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1yfxl"]
 normal = Vector2(1, 0)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_5x0w6"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lqlhd"]
 a = Vector2(-938, -1)
 b = Vector2(794, -1)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4wro"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gir2l"]
 radius = 16.7489
 height = 490.183
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gma6a"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1103c"]
 radius = 22.0266
 height = 303.033
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_tmmmh"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ajmi2"]
 a = Vector2(0, -443)
 b = Vector2(-1, 427)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lblqg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhs4i"]
 size = Vector2(52.6661, 185.292)
 
 [node name="Game" type="Node2D"]
@@ -59,33 +59,33 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(42, 873)
-shape = SubResource("SegmentShape2D_k758o")
+shape = SubResource("SegmentShape2D_vdyr6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1866, 0)
-shape = SubResource("WorldBoundaryShape2D_agygm")
+shape = SubResource("WorldBoundaryShape2D_5bqq4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 397)
-shape = SubResource("WorldBoundaryShape2D_88j3b")
+shape = SubResource("WorldBoundaryShape2D_1yfxl")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(939, 1080)
-shape = SubResource("SegmentShape2D_5x0w6")
+shape = SubResource("SegmentShape2D_lqlhd")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1911, 925)
 rotation = -0.261799
-shape = SubResource("CapsuleShape2D_s4wro")
+shape = SubResource("CapsuleShape2D_gir2l")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1743, 1080)
 rotation = -0.261799
-shape = SubResource("CapsuleShape2D_gma6a")
+shape = SubResource("CapsuleShape2D_1103c")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1922, 445)
-shape = SubResource("SegmentShape2D_tmmmh")
+shape = SubResource("SegmentShape2D_ajmi2")
 
 [node name="BoxChute" type="TextureRect" parent="."]
 z_index = 100
@@ -282,7 +282,7 @@ texture = ExtResource("9_48jpm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(55.567, 239.92)
 rotation = 1.309
-shape = SubResource("RectangleShape2D_lblqg")
+shape = SubResource("RectangleShape2D_uhs4i")
 debug_color = Color(0.811765, 0.333333, 0.615686, 0.419608)
 
 [node name="ScoreLabel" type="Label" parent="."]
