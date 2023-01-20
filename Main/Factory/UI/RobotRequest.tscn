@@ -337,12 +337,11 @@ rotation = 3.14159
 scale = Vector2(0.781, -0.781)
 frames = SubResource("SpriteFrames_np00e")
 
-[node name="BodyDetector" type="Area2D" parent="."]
-monitorable = false
+[node name="BodyDetector" type="Area2D" parent="." groups=["droppable"]]
+monitoring = false
 script = ExtResource("7_ogj37")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDetector"]
 shape = SubResource("RectangleShape2D_vbgdy")
 
-[connection signal="input_event" from="BodyDetector" to="BodyDetector" method="_on_input_event"]
 [connection signal="placed" from="BodyDetector" to="." method="_on_body_detector_placed"]

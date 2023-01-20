@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @onready var score_label: Label = $UILayer/ScoreLabel
 @onready var submissions: Node2D = $Submissions

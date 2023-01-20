@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://ble8rmy2ngrc0"]
+[gd_scene load_steps=3 format=3 uid="uid://4bl68oxbqocr"]
 
 [ext_resource type="Script" path="res://Main/Factory/UI/RequestSlot.gd" id="1_wrmcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbgdy"]
 size = Vector2(238, 340)
 
-[node name="RequestSlot" type="Area2D"]
+[node name="RequestSlot" type="Area2D" groups=["droppable"]]
+monitoring = false
 script = ExtResource("1_wrmcw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -13,23 +13,19 @@ func _physics_process(delta: float):
 		linear_velocity = vec_to_mouse * 50
 
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if !event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			set_deferred("is_grabbed", false)
-
-
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			is_grabbed = true
-
-
 func _integrate_forces(state):
 	if(snap_pos != Vector2.INF):
 		state.set_transform(Transform2D(0, snap_pos))
 		state.angular_velocity = 0
 		state.linear_velocity = Vector2.ZERO
+
+
+func grab() -> void:
+	is_grabbed = true
+
+
+func release() -> void:
+	is_grabbed = false
 
 
 func enable_gravity():

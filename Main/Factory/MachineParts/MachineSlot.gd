@@ -8,15 +8,12 @@ var content:RigidBody2D = null
 var disabled:bool = false
 
 
-func grab_nearby_body() -> void:
-	release_body()
-	
-	for b in get_overlapping_bodies():
-		if "is_grabbed" in b and b.is_grabbed and b.slot == allowed_type:
-			content = b
-			b.snap_to(global_position)
-			filled.emit()
-			break
+func insert_body(body) -> void:
+	if !disabled and body.slot == allowed_type:
+		release_body()
+		content = body
+		body.snap_to(global_position)
+		filled.emit()
 
 
 func release_body() -> void:
@@ -37,13 +34,3 @@ func disable() -> void:
 
 func enable() -> void:
 	disabled = false
-
-
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed and content:
-				content.is_grabbed = true
-				release_body()
-			elif !event.pressed and !content and !disabled:
-				grab_nearby_body()

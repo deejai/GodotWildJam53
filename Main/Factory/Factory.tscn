@@ -16,27 +16,27 @@
 [ext_resource type="PackedScene" uid="uid://d4eu1prgrhs7v" path="res://Main/Factory/Machines/Moulders/ArmMoulder.tscn" id="21_inwmn"]
 [ext_resource type="PackedScene" uid="uid://mbsoielctpme" path="res://Main/Factory/Machines/Moulders/LegMoulder.tscn" id="22_8yisn"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_qrr1b"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_e3pl1"]
 a = Vector2(-49, -16)
 b = Vector2(42, 13)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bngdr"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gaq55"]
 normal = Vector2(0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8j0v1"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5asqp"]
 normal = Vector2(1, 0)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_txhnj"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3l13t"]
 a = Vector2(-938, -1)
 b = Vector2(744, -1)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_5dftj"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ma3gh"]
 a = Vector2(0, -443)
 b = Vector2(-1, 427)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lagcv"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_47dy5"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node"]
 script = ExtResource("1_s1484")
 
 [node name="BackgorundLayer" type="CanvasLayer" parent="."]
@@ -135,29 +135,29 @@ volume_db = -12.0
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="InvisWalls"]
 position = Vector2(42, 873)
-shape = SubResource("SegmentShape2D_qrr1b")
+shape = SubResource("SegmentShape2D_e3pl1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisWalls"]
 position = Vector2(1866, 0)
-shape = SubResource("WorldBoundaryShape2D_bngdr")
+shape = SubResource("WorldBoundaryShape2D_gaq55")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisWalls"]
 position = Vector2(0, 397)
-shape = SubResource("WorldBoundaryShape2D_8j0v1")
+shape = SubResource("WorldBoundaryShape2D_5asqp")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="InvisWalls"]
 position = Vector2(939, 1080)
-shape = SubResource("SegmentShape2D_txhnj")
+shape = SubResource("SegmentShape2D_3l13t")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="InvisWalls"]
 position = Vector2(1922, 445)
-shape = SubResource("SegmentShape2D_5dftj")
+shape = SubResource("SegmentShape2D_ma3gh")
 
 [node name="GarbageCollectArea" type="Area2D" parent="."]
 position = Vector2(1802, 1163)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageCollectArea"]
-shape = SubResource("WorldBoundaryShape2D_lagcv")
+shape = SubResource("WorldBoundaryShape2D_47dy5")
 debug_color = Color(0.811765, 0.333333, 0.615686, 0.419608)
 
 [node name="Submissions" type="Node2D" parent="."]

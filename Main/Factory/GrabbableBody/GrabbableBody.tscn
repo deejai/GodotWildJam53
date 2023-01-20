@@ -2,8 +2,5 @@
 
 [ext_resource type="Script" path="res://Main/Factory/GrabbableBody/GrabbableBody.gd" id="1_htkan"]
 
-[node name="GrabbableBody" type="RigidBody2D"]
-input_pickable = true
+[node name="GrabbableBody" type="RigidBody2D" groups=["grabbable"]]
 script = ExtResource("1_htkan")
-
-[connection signal="input_event" from="." to="." method="_on_input_event"]
