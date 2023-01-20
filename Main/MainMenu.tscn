@@ -1,21 +1,291 @@
-[gd_scene load_steps=2 format=3 uid="uid://7ru077xx0uyw"]
+[gd_scene load_steps=16 format=3 uid="uid://7ru077xx0uyw"]
 
 [ext_resource type="Script" path="res://Main/MainMenu.gd" id="1_napa8"]
+[ext_resource type="Theme" uid="uid://dv2upfnjivc4m" path="res://Main/Theme/default_theme.tres" id="1_nb8xv"]
+[ext_resource type="Texture2D" uid="uid://bg00y10vbrf7j" path="res://Assets/Title/Logo.png" id="3_2e0ug"]
+[ext_resource type="Texture2D" uid="uid://c78d3a20x6nfo" path="res://Assets/Floor.png" id="4_pw3gq"]
+[ext_resource type="PackedScene" uid="uid://sdw3i0pl6i41" path="res://Main/Factory/ConveyorBelt/ConveyorBelt.tscn" id="5_1cqsm"]
+[ext_resource type="Script" path="res://Main/StuffSpawner.gd" id="6_nh6so"]
+[ext_resource type="PackedScene" uid="uid://dno508jh3sumi" path="res://Main/Factory/GrabbableBody/RobotPart/Arm.tscn" id="7_yqitn"]
+[ext_resource type="PackedScene" uid="uid://vravlf5qpow2" path="res://Main/Factory/GrabbableBody/Box/Box.tscn" id="8_hw46m"]
+[ext_resource type="PackedScene" uid="uid://hq6hjmnmdlxw" path="res://Main/Factory/GrabbableBody/RobotPart/Head.tscn" id="9_42q1r"]
+[ext_resource type="PackedScene" uid="uid://cbyposufs6c4t" path="res://Main/Factory/GrabbableBody/RobotPart/Leg.tscn" id="10_6w7xh"]
+[ext_resource type="Script" path="res://Main/Destroyer.gd" id="11_omi0p"]
 
-[node name="MainMenu" type="Node2D"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_1klip"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vwokl"]
+normal = Vector2(1, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_4tycx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 60, -112, 0, 0, 0, 0, 958, -98)
+}
+point_count = 2
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hqa6x"]
+
+[node name="MainMenu" type="Node"]
 script = ExtResource("1_napa8")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.286275, 1, 1, 1)
-polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 1080, 0, 1080)
-metadata/_edit_lock_ = true
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="Button" type="Button" parent="."]
-offset_left = 811.0
-offset_top = 377.0
-offset_right = 1151.0
-offset_bottom = 514.0
-theme_override_font_sizes/font_size = 42
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.886275, 0.886275, 0.886275, 1)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nb8xv")
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Title"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 25
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Title/VBoxContainer"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_2e0ug")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="btn_newgame" type="Button" parent="UI/Title/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "New Game"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="btn_options" type="Button" parent="UI/Title/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options"
+
+[node name="btn_credits" type="Button" parent="UI/Title/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Credits"
+
+[node name="btn_quit" type="Button" parent="UI/Title/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
+
+[node name="OptionPanel" type="PanelContainer" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -289.0
+offset_right = 315.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nb8xv")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/OptionPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/OptionPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="GridContainer" parent="UI/OptionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="lbl_music" type="Label" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Music"
+
+[node name="btn_music_dec" type="Button" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "-"
+
+[node name="lbl_music_value" type="Label" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "100"
+
+[node name="btn_music_inc" type="Button" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "+"
+
+[node name="lbl_sfx" type="Label" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "SFX"
+
+[node name="btn_sfx_dec" type="Button" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "-"
+
+[node name="lbl_sfx_value" type="Label" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "100"
+
+[node name="btn_sfx_inc" type="Button" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "+"
+
+[node name="HSeparator" type="HSeparator" parent="UI/OptionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/OptionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="lbl_fullscreen" type="Label" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="btn_fullscreen_off" type="Button" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_1klip")
+text = "Off"
+
+[node name="btn_fullscreen_on" type="Button" parent="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1klip")
+text = "On"
+
+[node name="Control" type="Control" parent="UI/OptionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="btn_back" type="Button" parent="UI/OptionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="CreditsPanel" type="PanelContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -65.0
+offset_right = 301.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nb8xv")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CreditsPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreditsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="UI/CreditsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Simple Repetition Games
+
+Game Director/Musician  - CoopTroop47
+Coder - Dotadave
+Art/Coder - Ferdy
+"
+horizontal_alignment = 1
+
+[node name="btn_back" type="Button" parent="UI/CreditsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(-694.146, 1086.66)
+scale = Vector2(2.03308, 2.03308)
+texture = ExtResource("4_pw3gq")
+
+[node name="ConveyorBelt" parent="." instance=ExtResource("5_1cqsm")]
+position = Vector2(184.854, 927.663)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 511)
+shape = SubResource("WorldBoundaryShape2D_vwokl")
+
+[node name="StuffSpawner" type="Node2D" parent="."]
+script = ExtResource("6_nh6so")
+
+[node name="Path2D" type="Path2D" parent="StuffSpawner"]
+curve = SubResource("Curve2D_4tycx")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="StuffSpawner/Path2D"]
+position = Vector2(60, -112)
+rotation = 0.0155889
+
+[node name="Objects" type="ResourcePreloader" parent="StuffSpawner"]
+resources = [PackedStringArray("Arm", "Box", "Head", "Leg"), [ExtResource("7_yqitn"), ExtResource("8_hw46m"), ExtResource("9_42q1r"), ExtResource("10_6w7xh")]]
+
+[node name="Timer" type="Timer" parent="StuffSpawner"]
+autostart = true
+
+[node name="Destroyer" type="Area2D" parent="."]
+position = Vector2(1012, 1188)
+script = ExtResource("11_omi0p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Destroyer"]
+shape = SubResource("WorldBoundaryShape2D_hqa6x")
+
+[connection signal="pressed" from="UI/Title/VBoxContainer/btn_newgame" to="." method="_on_btn_newgame_pressed"]
+[connection signal="pressed" from="UI/Title/VBoxContainer/btn_options" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="UI/Title/VBoxContainer/btn_credits" to="." method="_on_btn_credits_pressed"]
+[connection signal="pressed" from="UI/Title/VBoxContainer/btn_quit" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer/btn_music_dec" to="." method="_on_btn_music_dec_pressed"]
+[connection signal="pressed" from="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer/btn_music_inc" to="." method="_on_btn_music_inc_pressed"]
+[connection signal="pressed" from="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer/btn_sfx_dec" to="." method="_on_btn_sfx_dec_pressed"]
+[connection signal="pressed" from="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer/btn_sfx_inc" to="." method="_on_btn_sfx_inc_pressed"]
+[connection signal="pressed" from="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer2/btn_fullscreen_off" to="." method="_on_btn_fullscreen_off_pressed"]
+[connection signal="pressed" from="UI/OptionPanel/MarginContainer/VBoxContainer/HBoxContainer2/btn_fullscreen_on" to="." method="_on_btn_fullscreen_on_pressed"]
+[connection signal="pressed" from="UI/OptionPanel/MarginContainer/VBoxContainer/btn_back" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="UI/CreditsPanel/MarginContainer/VBoxContainer/btn_back" to="." method="_on_credits_btn_back_pressed"]
+[connection signal="timeout" from="StuffSpawner/Timer" to="StuffSpawner" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Destroyer" to="Destroyer" method="_on_body_entered"]

@@ -22,6 +22,7 @@ func _integrate_forces(state):
 
 func grab() -> void:
 	is_grabbed = true
+	get_parent().move_child(self, -1)
 
 
 func release() -> void:
