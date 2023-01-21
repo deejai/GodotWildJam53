@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://b1dwx2pjqsdb6"]
 
 [ext_resource type="Script" path="res://Main/Factory/Machines/Moulders/Moulder.gd" id="1_obed4"]
 [ext_resource type="PackedScene" uid="uid://bbu8s1qi3rdjm" path="res://Main/Factory/MachineParts/MachineSlot.tscn" id="2_wk4aa"]
 [ext_resource type="PackedScene" uid="uid://b2ik3muvw5dkc" path="res://Main/Factory/MachineParts/Shutter.tscn" id="3_j34bn"]
 [ext_resource type="PackedScene" uid="uid://kma7hnn5u1a2" path="res://Main/Particles/Smoke.tscn" id="4_rocrr"]
 [ext_resource type="PackedScene" uid="uid://v0rvxcxi4drb" path="res://Main/Sound/MoulderSound.tscn" id="5_atmff"]
-[ext_resource type="PackedScene" uid="uid://rri1mvk5t6le" path="res://Main/Utils/Node2DShaker.tscn" id="6_rypfm"]
+[ext_resource type="PackedScene" uid="uid://qcwv387nb7kt" path="res://Main/Utils/Node2DShaker.tscn" id="6_rypfm"]
 
 [node name="Moulder" type="Node2D"]
 script = ExtResource("1_obed4")

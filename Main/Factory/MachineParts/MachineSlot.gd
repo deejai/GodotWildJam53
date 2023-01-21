@@ -17,13 +17,13 @@ func insert_body(body) -> void:
 
 
 func release_body() -> void:
-	if content:
+	if is_instance_valid(content):
 		content.unsnap()
 		content = null
 
 
 func destroy_body() -> void:
-	if content:
+	if is_instance_valid(content):
 		content.queue_free()
 		content = null
 
