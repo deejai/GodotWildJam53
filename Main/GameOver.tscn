@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://u1o2c30ksnhs"]
+
+[ext_resource type="Script" path="res://Main/GameOver.gd" id="1_885y8"]
+[ext_resource type="Texture2D" uid="uid://bg00y10vbrf7j" path="res://Assets/Title/Logo.png" id="1_g1gtr"]
+
+[sub_resource type="Gradient" id="Gradient_fvktt"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mrwee"]
+gradient = SubResource("Gradient_fvktt")
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_885y8")
+
+[node name="TitleArt" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.0901961)
+z_index = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_g1gtr")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("GradientTexture1D_mrwee")
+metadata/_edit_lock_ = true
+
+[node name="GameOverLabel" type="Label" parent="."]
+z_index = 10
+offset_left = 585.0
+offset_top = 268.0
+offset_right = 1280.0
+offset_bottom = 446.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "Game Over"
+
+[node name="ProfitReportLabel" type="Label" parent="."]
+z_index = 10
+offset_left = 204.0
+offset_top = 446.0
+offset_right = 1668.0
+offset_bottom = 550.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "You earned __AMOUNT__ before getting fired"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 622.0
+offset_top = 623.0
+offset_right = 885.0
+offset_bottom = 725.0
+theme_override_font_sizes/font_size = 36
+text = "Main Menu
+"
+
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 1001.0
+offset_top = 623.0
+offset_right = 1264.0
+offset_bottom = 725.0
+theme_override_font_sizes/font_size = 36
+text = "Restart"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

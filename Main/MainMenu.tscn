@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://7ru077xx0uyw"]
+[gd_scene load_steps=17 format=3 uid="uid://7ru077xx0uyw"]
 
 [ext_resource type="Script" path="res://Main/MainMenu.gd" id="1_napa8"]
 [ext_resource type="Theme" uid="uid://dv2upfnjivc4m" path="res://Main/Theme/default_theme.tres" id="1_nb8xv"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://hq6hjmnmdlxw" path="res://Main/Factory/GrabbableBody/RobotPart/Head.tscn" id="9_42q1r"]
 [ext_resource type="PackedScene" uid="uid://cbyposufs6c4t" path="res://Main/Factory/GrabbableBody/RobotPart/Leg.tscn" id="10_6w7xh"]
 [ext_resource type="Script" path="res://Main/Destroyer.gd" id="11_omi0p"]
+[ext_resource type="AudioStream" uid="uid://b02crvya8rk65" path="res://Assets/Sound/Music/Main Menu Complete Theme.wav" id="12_6m4j8"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1klip"]
 
@@ -274,6 +275,10 @@ script = ExtResource("11_omi0p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Destroyer"]
 shape = SubResource("WorldBoundaryShape2D_hqa6x")
+
+[node name="MenuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_6m4j8")
+volume_db = -6.0
 
 [connection signal="pressed" from="UI/Title/VBoxContainer/btn_newgame" to="." method="_on_btn_newgame_pressed"]
 [connection signal="pressed" from="UI/Title/VBoxContainer/btn_options" to="." method="_on_btn_options_pressed"]

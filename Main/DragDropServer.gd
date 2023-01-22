@@ -31,7 +31,7 @@ func grab_obj_at(pos: Vector2) -> void:
 
 
 func release_grabbed_obj() -> void:
-	if grabbed_obj:
+	if is_instance_valid(grabbed_obj):
 		grabbed_obj.release()
 		grabbed_obj = null
 

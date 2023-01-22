@@ -6,6 +6,7 @@ var newgame = preload("res://Main/Factory/Factory.tscn")
 func _ready() -> void:
 	$UI/OptionPanel.hide()
 	$UI/CreditsPanel.hide()
+	$MenuTheme.play()
 
 
 func _on_btn_newgame_pressed() -> void:

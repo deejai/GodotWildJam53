@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddi6vqmvepusl"]
+
+[ext_resource type="AudioStream" uid="uid://pacjopjmdy22" path="res://Assets/Sound/SFX/sawblade_contact.wav" id="1_kgegk"]
+
+[node name="SawbladeSound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_kgegk")

@@ -38,7 +38,7 @@ step = 0.001
 show_percentage = false
 
 [node name="ShutterTimer" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 2.38
 one_shot = true
 
 [node name="ProcessingTimer" type="Timer" parent="."]

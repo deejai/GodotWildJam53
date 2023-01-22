@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://d3ddv1stgp08h"]
 
 [ext_resource type="Script" path="res://Main/Factory/Machines/Combiner/Combiner.gd" id="1_736ju"]
 [ext_resource type="Texture2D" uid="uid://bs08phxdjf6ql" path="res://Assets/Combiner.png" id="1_pjemm"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://vravlf5qpow2" path="res://Main/Factory/GrabbableBody/Box/Box.tscn" id="2_yaw25"]
 [ext_resource type="PackedScene" uid="uid://bbu8s1qi3rdjm" path="res://Main/Factory/MachineParts/MachineSlot.tscn" id="3_l31tu"]
 [ext_resource type="PackedScene" uid="uid://b2ik3muvw5dkc" path="res://Main/Factory/MachineParts/Shutter.tscn" id="4_57gww"]
-[ext_resource type="PackedScene" uid="uid://rri1mvk5t6le" path="res://Main/Utils/Node2DShaker.tscn" id="6_3utcg"]
+[ext_resource type="PackedScene" uid="uid://qcwv387nb7kt" path="res://Main/Utils/Node2DShaker.tscn" id="6_3utcg"]
 [ext_resource type="PackedScene" uid="uid://ce6wxa8eedfau" path="res://Main/Sound/CombinerSound.tscn" id="6_k2diw"]
 
 [node name="Combiner" type="Node2D"]
@@ -53,7 +53,7 @@ step = 0.001
 show_percentage = false
 
 [node name="ShutterTimer" type="Timer" parent="."]
-wait_time = 2.2
+wait_time = 2.03
 one_shot = true
 
 [node name="ProcessingTimer" type="Timer" parent="."]

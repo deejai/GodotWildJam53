@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name GrabbableBody
+
 const vec_limit = 30
 
 var is_grabbed:bool = false
